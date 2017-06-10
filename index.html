@@ -107,10 +107,139 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj3r2c2m80001w86ol4e697by" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj3rdvtkl0000wi4lyactmtu0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/">ansible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017/05/git-cheat-sheet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/git-cheat-sheet/" class="article-date">
+  <time datetime="2017-05-27T17:00:00.000Z" itemprop="datePublished">2017-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/git-cheat-sheet/">Git cheat sheet for beginer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Chức năng</th>
+<th>Lưu ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git clone path-to-repository</code></td>
+<td>Tạo clone của một repository lên thư mục đang đứng</td>
+<td>Nên config ssh key cho để sử dụng git thuận tiện hơn</td>
+</tr>
+<tr>
+<td><code>git add tên-file</code></td>
+<td>Thêm trạng thái thay đổi hiện tại cho lần commit tiếp theo</td>
+<td><code>git add .</code> thêm toàn bộ file thay đổi</td>
+</tr>
+<tr>
+<td><code>git commit -am &quot;Commit message&quot;</code></td>
+<td>Commit toàn bộ file đã add vào kèm commit message</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>Đẩy những commit sau lần push trước lên branch ở origin</td>
+<td>Nên pull trước để update thay đổi ở origin branch. Hạn chế sử dụng <code>git push -f</code>. Thao tác này sẽ thay đổi toàn bộ branch ở trên server giống với branch ở local.</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>Update toàn bộ những thay đổi của branch ở trên server</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>Xem danh sách thay đổi mà bạn cần add hoặc commit</td>
+<td>Khuyến khích thường xuyên xem git status để đỡ ngậm hành</td>
+</tr>
+<tr>
+<td><code>git checkout -b branch-foo</code></td>
+<td>Tạo mới branch tên là branch-foo từ branch đang đứng và chuyển sang branch-foo</td>
+<td>Những thay đổi chưa commit sẽ chuyển sang branch-foo</td>
+</tr>
+<tr>
+<td><code>git checkout branch-foo</code></td>
+<td>Chuyển sang branch có tên là branch-foo</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git branch</code></td>
+<td>Liệt kê ra toàn bộ branch trên repository và chỉ ra branch mình đang đứng</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git branch -d branch-foo</code></td>
+<td>Xoá branch có tên là branch-foo</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git push origin branch-foo</code></td>
+<td>Đẩy branch có tên là branch-foo lên remote repository</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git fetch origin</code></td>
+<td>Cập nhật origin ở remote</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git reset origin/master</code></td>
+<td>Reset toàn bộ commit ở branch hiện tại giống với trạng thái của branch master</td>
+<td>Nhưng thay đổi vẫn được giữ nguyên nhưng chưa được add và commit vào</td>
+</tr>
+<tr>
+<td><code>git reset --hard</code></td>
+<td>Bỏ hết toàn bộ những thay đổi chưa được commit</td>
+<td></td>
+</tr>
+<tr>
+<td><code>git merge branch-foo</code></td>
+<td>Merge branch hiện tại với branch có tên là branch-foo</td>
+<td>Nên sử dụng chức năng merge để solve conflict</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">Hướng dẫn tạo ssh key và add to git account</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj3rdvtkz0001wi4lf6cm30og" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -146,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj3r2c2lv0000w86olnj4p23q" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj3rdvtld0004wi4l8u4kc32h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +294,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
     </div>
   </div>
 
@@ -175,7 +304,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li></ul>
     </div>
   </div>
 
@@ -185,7 +314,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a>
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a>
     </div>
   </div>
 
@@ -208,6 +337,10 @@
         
           <li>
             <a href="/2017/05/ansible-tips-and-trick/">Ansible - tips and tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/git-cheat-sheet/">Git cheat sheet for beginer</a>
           </li>
         
           <li>
