@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Webpack thật đơn giản | Tư Duy Đơn Giản</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Webpack là một trong những tools “khủng khiếp” nhất về ý tưởng cũng như độ khoai của việc cấu hình. Nhưng khi đã quen rồi thì có vẻ nó cũng không khoai lắm.">
+<meta name="keywords" content="js,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack thật đơn giản">
+<meta property="og:url" content="https://tuduydongian.com/2017/06/webpack-simple/index.html">
+<meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="Webpack là một trong những tools “khủng khiếp” nhất về ý tưởng cũng như độ khoai của việc cấu hình. Nhưng khi đã quen rồi thì có vẻ nó cũng không khoai lắm.">
+<meta property="og:updated_time" content="2017-06-30T06:52:08.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack thật đơn giản">
+<meta name="twitter:description" content="Webpack là một trong những tools “khủng khiếp” nhất về ý tưởng cũng như độ khoai của việc cấu hình. Nhưng khi đã quen rồi thì có vẻ nó cũng không khoai lắm.">
+  
+    <link rel="alternate" href="/atom.xml" title="Tư Duy Đơn Giản" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100038903-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=124307384811590";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK -->
+
+
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tư Duy Đơn Giản</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Nghĩ đơn giản, làm đơn giản</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/06/webpack-simple" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/webpack-simple/" class="article-date">
+  <time datetime="2017-06-27T17:00:00.000Z" itemprop="datePublished">2017-06-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/frontend/">frontend</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Webpack thật đơn giản
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Webpack là một trong những tools “khủng khiếp” nhất về ý tưởng cũng như độ khoai của việc cấu hình. Nhưng khi đã quen rồi thì có vẻ nó cũng không khoai lắm.<br><a id="more"></a><br>Khi mới xuất hiện thì webpack được cho là có ý tưởng khá “dị”. Nếu bạn đã quá mệt mỏi với việc maintain assets của phần frontend trong mỗi project, nào là js, css, images, fonts, blah blah… thì ý tưởng của webpack là 1 tool build duy nhất để quản lý toàn bộ mớ assets này.<br><em>Bài viết này dựa trên webpack 3</em><br>Để bắt đầu thì trước tiên ta cần tạo 1 project mới và kéo webpack về<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm init </div><div class="line">npm install --save-dev webpack</div></pre></td></tr></table></figure></p>
+<p>Giờ ta sẽ setup 1 project đơn giản để in ra chữ <code>Hello World!</code> ra màn hình, cấu trúc thư mục như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">node_modules</div><div class="line">package.json</div><div class="line">src</div><div class="line">├── app.js</div><div class="line">└── index.html</div></pre></td></tr></table></figure></p>
+<p>Nội dung các files<br><figure class="highlight html"><figcaption><span>src/index.html</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf8"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Webpack Starter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><figcaption><span>src/app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.body;</div><div class="line"><span class="keyword">if</span> (el) &#123;</div><div class="line">    el.innerHTML = <span class="string">'Hello World!'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Mở file index.html bằng trình duyệt lên bạn sẽ thấy chữ Hello World! được in ra.<br>Mọi thứ đã chạy, bây giờ ta sẽ dùng webpack để build.<br>Tạo file webpack.config.js với nội dung như sau:  </p>
+<figure class="highlight js"><figcaption><span>webpack.config.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">'./src/app.js'</span>, <span class="comment">//webpack sẽ đọc thằng này đầu tiên </span></div><div class="line">    output: &#123;</div><div class="line">        <span class="attr">path</span>: path.resolve(__dirname, <span class="string">"dist"</span>), <span class="comment">// mình sẽ build mọi thứ ra thư mục dist </span></div><div class="line">        <span class="comment">// thằng path này đòi hỏi phải là absolute nên mình phải kéo thằng module path vào</span></div><div class="line">        filename: <span class="string">"bundle.js"</span>, <span class="comment">// file được build ra sẽ là file này </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Vậy là đã xong cả, giờ bạn chạy <code>./node_modules/.bin/webpack --config webpack.config.js</code> sẽ thấy một file mới được build ra trong thư mục dist là bundle.js<br>Để cho tiện thì bạn nên add thêm 1 command mới vào trong package.json để build:<br><figure class="highlight"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "build": "webpack --config webpack.config.js"</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>Từ giờ khi nào mình nói <code>build lại</code> thì các bạn cứ gõ <code>npm run build</code> nhé ;)<br>Giờ là bắt đầu những thứ hay ho với webpack.   </p>
+<h3 id="Loader"><a href="#Loader" class="headerlink" title="Loader"></a>Loader</h3><p>Webpack đơn thuần chỉ làm việc với js. Các định dạng khác nhau thì cần thêm loader để load.  </p>
+<h4 id="Babel-loader"><a href="#Babel-loader" class="headerlink" title="Babel loader"></a>Babel loader</h4><p>Hiện tại thì es2015 (es6) vẫn chưa hỗ trợ đầy đủ bởi các trình duyệt, nhưng nếu bạn thích viết es6 ngay cho phê, code được build ra sẽ được transform sang es5 thì ta sẽ dùng babel loader.<br>Trước tiên ta cần kéo các dependencies về:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-core babel-loader babel-preset-es2015</div></pre></td></tr></table></figure></p>
+<p>Sau đó thì add thêm config module cho webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">module: &#123;</div><div class="line">        rules: [</div><div class="line">        &#123;</div><div class="line">            test: /\.js$/, // kiểm tra xem file nào có đuôi là .js </div><div class="line">            loader: &apos;babel-loader&apos; // dùng thằng loader này để xử lý file đó </div><div class="line">            options: &#123;</div><div class="line">                presets: [&quot;es2015&quot;] // dùng cái preset này </div><div class="line">            &#125;,</div><div class="line">        &#125;]</div><div class="line">     &#125;</div></pre></td></tr></table></figure></p>
+<p>Giờ ta sẽ modify lại file app.js tí dùng es6<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const el = document.body;</div><div class="line">if (el) &#123;</div><div class="line">    const target = &apos;World&apos;;</div><div class="line">    el.innerHTML = `Hello $&#123;target&#125;!`;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Build lại chút ta sẽ thấy code es6 đã được transform ra es5 và có thể chạy ngon lành trên mọi trình duyệt<br><figure class="highlight js"><figcaption><span>dist/bundle.js </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">var el = <span class="built_in">document</span>.body;</div><div class="line"><span class="keyword">if</span> (el) &#123;</div><div class="line">    <span class="keyword">var</span> target = <span class="string">'World'</span>;</div><div class="line">    el.innerHTML = <span class="string">'Hello '</span> + target + <span class="string">'!'</span>;</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>Nếu bạn để ý kỹ tí thì sẽ thấy cái section module mình cấu hình từng thể loại file mà webpack xử lý theo rules.   </p>
+<h4 id="Css-Loader"><a href="#Css-Loader" class="headerlink" title="Css Loader"></a>Css Loader</h4><p>Như đã nói từ trước, bây giờ mọi thể loại assets của mình sẽ được webpack xử lý và build ra. Ta sẽ thử với css, tạo 1 file app.css và apply 1 ít css cho nó máu lửa<br><figure class="highlight css"><figcaption><span>src/app.css</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">font</span>: <span class="number">#f00</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Webpack cho phép chúng ta load module như là viết trên nodejs, ta sẽ coi file css vừa rồi như là 1 module và load nó từ entry app.js<br><figure class="highlight js"><figcaption><span>app.js </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// thêm dòng này vào đầu file </span></div><div class="line"><span class="keyword">import</span> <span class="string">'./app.css'</span>;</div></pre></td></tr></table></figure></p>
+<p>Xong, giờ ta build lại sẽ thấy … báo lỗi :D<br>Lý do là mình chưa khai báo loader nào để xử lý file .css nên ẻm webpack không hiểu. Để xử lý thì ta sẽ cần:<br>Cài css loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev css-loader</div></pre></td></tr></table></figure></p>
+<p>Add thêm rule để load file css<br><figure class="highlight js"><figcaption><span>webpack.config.css </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line"></div><div class="line">    <span class="attr">use</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">loader</span>: <span class="string">"css-loader"</span>,</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Giờ build lại chắc chắn thành công. Nếu bạn mở file bundle.js ra sẽ thấy toàn bộ code css và js đã được build vào trong đó. Ý tưởng của webpack là vậy, xem tất cả như js và dùng webpack để build hết :D  </p>
+<p>Nhúng css vào trong js thì cũng có nhiều nhược điểm: ví dụ như browser phải có js enabled thì mới chạy được, hoặc không thể cache css ra riêng để tăng tốc độ tải.  </p>
+<p>Yên tâm thích thế nào thì webpack chiều thế nấy &lt;3   </p>
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>Webpack có cơ chế plugin để hỗ trợ tuỳ biến quá trình xử lý file. </p>
+<h4 id="ExtractTextWebpackPlugin"><a href="#ExtractTextWebpackPlugin" class="headerlink" title="ExtractTextWebpackPlugin"></a>ExtractTextWebpackPlugin</h4><p>Ok, bây giờ chúng ta không thích nhúng css vào js nữa, và muốn thằng webpack xử lý cho css ra riêng, đường ai nấy đi, ta sẽ cần dùng ExtractTextWebpackPlugin này.<br>Kéo module về trước<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev extract-text-webpack-plugin</div></pre></td></tr></table></figure></p>
+<p>Sửa lại file config 1 chút phần load css<br><figure class="highlight js"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// require thêm plugin </span></div><div class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"></div><div class="line"><span class="comment">// đổi cách load css </span></div><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">    <span class="attr">use</span>: ExtractTextPlugin.extract(&#123;</div><div class="line">        <span class="attr">use</span>: <span class="string">"css-loader"</span></div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// thêm section plugin vào  </span></div><div class="line">plugins: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(&#123;</div><div class="line">            <span class="attr">filename</span>: <span class="string">'bundle.css'</span>,</div><div class="line">            <span class="attr">allChunks</span>: <span class="literal">true</span>,</div><div class="line">        &#125;),</div><div class="line">    ]</div></pre></td></tr></table></figure></p>
+<p>Giờ build ra thì bạn sẽ thấy có 2 file là bundle.js và bundle.css :D  </p>
+<p>Để add style thì ta sẽ cần sửa index.html, thêm link rel=”stylesheet” và trỏ đến file bundle.css.<br>Nhưng nếu ta cấu hình webpack để build ra nhiều file, ví dụ js có vendor.js và mỗi page có 1 js riêng, hoặc mình sửa để build ra file có thêm hash (bundle.ade8kdh.js) thì chuyện đi nhúng mấy file này thủ công là not cool :(  </p>
+<h4 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h4><p>Plugin này sinh ra để giải quyết chuyện đó. Nó sẽ tự tạo ra 1 file html và load toàn bộ bundle của mình vào ;)<br>Kéo cháu module này về<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev html-webpack-plugin</div></pre></td></tr></table></figure></p>
+<p>Sửa config để load plugin:<br><figure class="highlight js"><figcaption><span>webpack.config.js  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// require thêm plugin  </span></div><div class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line"></div><div class="line"><span class="comment">// thêm plugin này </span></div><div class="line">plugins: [</div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin()</div><div class="line">    ]</div></pre></td></tr></table></figure></p>
+<p>Giờ bạn không cần file index.html nữa nên có thể xoá nó đi.<br>Build lại code và mở file index.html trong thư mục dist bạn sẽ thấy mọi thứ đã được load sẵn ở đó.  </p>
+<p>Đến đây hy vọng bạn đã hiểu phần nào về webpack. Túm cái váy lại: </p>
+<ul>
+<li>Webpack: xem mọi file như là js, quản lý file theo module, browser không cần care nữa.  </li>
+<li>Loader: chỉ định các thể loại file nào sẽ được xử lý như nào. </li>
+<li>Plugin: giúp tuỳ biến quá trình process file.  </li>
+</ul>
+<p>Các bạn có thể tham khảo thêm tại: </p>
+<ul>
+<li><a href="https://webpack.js.org/configuration/" target="_blank" rel="external">Cấu hình đầy đủ webpack</a></li>
+<li><a href="https://webpack.js.org/loaders/" target="_blank" rel="external">Danh sách các loaders</a></li>
+<li><a href="https://webpack.js.org/plugins/" target="_blank" rel="external">Danh sách các plugins</a></li>
+</ul>
+<p>P/s: chờ sang tháng mình sẽ làm tiếp 1 bài về cấu hình nâng cao cho webpack nhé &lt;3<br>Toàn bộ mã nguồn của bài viết này có thể xem tại: <a href="https://github.com/tuduydongian/webpack-starter" target="_blank" rel="external">webpack starter</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2017/06/webpack-simple/" data-id="cj4ji59e40009jm623khrmypw" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/use-custom-event-instead-generic-event/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Use Custom Event instead Generic Event
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/ansible-tips-and-trick/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Ansible - tips and tricks</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2017/06/webpack-simple/index.html" data-width="100%" data-numposts="10"></div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/use-custom-event-instead-generic-event/">Use Custom Event instead Generic Event</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/webpack-simple/">Webpack thật đơn giản</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/ansible-tips-and-trick/">Ansible - tips and tricks</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/git-cheat-sheet/">Git cheat sheet for beginer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/symfony-reposiory-practice/">Symfony repository - a little practice</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 tuduydongian.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
