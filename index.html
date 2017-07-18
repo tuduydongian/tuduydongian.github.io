@@ -68,9 +68,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
@@ -116,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/git-endless-story/" data-id="cj4lfuh1r0006js1zwmndxigs" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/git-endless-story/" data-id="cj59csncx0007ip5ef3yw52bo" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -164,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/use-custom-event-instead-generic-event/" data-id="cj4lfuh1w0009js1z2eh7e50w" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/use-custom-event-instead-generic-event/" data-id="cj59csncw0006ip5ef6or50da" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/best-practice/">best practice</a></li></ul>
@@ -212,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/webpack-simple/" data-id="cj4lfuh23000bjs1zjlpvm6ux" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/webpack-simple/" data-id="cj59csnd2000aip5emda24ly3" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -267,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj4lfuh0c0000js1zk8jb9mlj" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj59csncf0002ip5e600rmrgx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/">ansible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
@@ -306,14 +306,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Git-config"><a href="#Git-config" class="headerlink" title="Git config"></a>Git config</h4><ol>
+        <h4 id="Git-configuration"><a href="#Git-configuration" class="headerlink" title="Git configuration"></a>Git configuration</h4><ol>
 <li><p>Tạo ssh key </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>Cấu hình user và email</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="Day-to-day-Work"><a href="#Day-to-day-Work" class="headerlink" title="Day-to-day Work"></a>Day-to-day Work</h4><ul>
+<li>Xem danh sách thay đổi mà bạn cần add hoặc commit. Branch hiện tại đang đứng là gì.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: Khuyến khích thường xuyên xem git status để đỡ ngậm hành.</p>
+<ul>
+<li>Thêm file vào staging.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;file&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips:</strong> <code>git add .</code> để thêm toàn bộ các thay đổi ở thư mục hiện tại.   </p>
+<ul>
+<li><p>Lỡ tay add file, giờ cần gỡ ra khỏi staging  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;file&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Commit file đã được staging.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;vừa làm gì thì viết vào&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: Commit toàn bộ thay đổi <code>git commit -am &quot;message có tâm&quot;</code>  </p>
+<ul>
+<li><p>Lỡ tay commit, redo để commit lại cho cẩn thận </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD~</div></pre></td></tr></table></figure>
+</li>
+<li><p>Đẩy toàn bộ file đang dở tay sửa vào stash  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
+</li>
+<li><p>Kéo lại thay đổi từ stash </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: quên mất có những cái gì trong stash, gõ: <code>git stash list</code>   </p>
+<ul>
+<li><p>Clear stash </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash drop</div></pre></td></tr></table></figure>
+</li>
+<li><p>Sửa file chán chê, giờ muốn quay lại trạng thái ban đầu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- &lt;file&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: checkout file từ branch khác: <code>git checkout &lt;branch&gt; -- &lt;file&gt;</code>  </p>
+<ul>
+<li>Xoá toàn bộ file chưa được track bởi git<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clean -df</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: nắn tay 3 lần trước khi gõ. Để xem nó sẽ xoá file gì cho chắc ăn: <code>git clean -dn</code>  </p>
+<ul>
+<li>Reset files về lại mốc commit nào đó. Toàn bộ thay đổi giữ nguyên như chưa từng commit. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;branch&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: Muốn reset về master của server: <code>git reset origin/master</code>. Xài cái này để làm thành 1 commit đẹp chuẩn bị merge vào master. </p>
+<ul>
+<li>Reset về mốc commit nào đó. Xoá hết toàn bộ thay đổi. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>Tips</strong>: cực kỳ cẩn thận khi gõ. Chỉ dùng khi muốn xoá hết làm lại từ đầu.  </p>
 <table>
 <thead>
 <tr>
@@ -329,16 +384,6 @@
 <td>Nên config ssh key cho để sử dụng git thuận tiện hơn</td>
 </tr>
 <tr>
-<td><code>git add tên-file</code></td>
-<td>Thêm trạng thái thay đổi hiện tại cho lần commit tiếp theo</td>
-<td><code>git add .</code> thêm toàn bộ file thay đổi</td>
-</tr>
-<tr>
-<td><code>git commit -am &quot;Commit message&quot;</code></td>
-<td>Commit toàn bộ file đã add vào kèm commit message</td>
-<td></td>
-</tr>
-<tr>
 <td><code>git push</code></td>
 <td>Đẩy những commit sau lần push trước lên branch ở origin</td>
 <td>Nên pull trước để update thay đổi ở origin branch. Hạn chế sử dụng <code>git push -f</code>. Thao tác này sẽ thay đổi toàn bộ branch ở trên server giống với branch ở local.</td>
@@ -347,11 +392,6 @@
 <td><code>git pull</code></td>
 <td>Update toàn bộ những thay đổi của branch ở trên server</td>
 <td></td>
-</tr>
-<tr>
-<td><code>git status</code></td>
-<td>Xem danh sách thay đổi mà bạn cần add hoặc commit</td>
-<td>Khuyến khích thường xuyên xem git status để đỡ ngậm hành</td>
 </tr>
 <tr>
 <td><code>git checkout -b branch-foo</code></td>
@@ -389,23 +429,17 @@
 <td>Nhưng thay đổi vẫn được giữ nguyên nhưng chưa được add và commit vào</td>
 </tr>
 <tr>
-<td><code>git reset --hard</code></td>
-<td>Bỏ hết toàn bộ những thay đổi chưa được commit</td>
-<td></td>
-</tr>
-<tr>
 <td><code>git merge branch-foo</code></td>
 <td>Merge branch hiện tại với branch có tên là branch-foo</td>
 <td>Nên sử dụng chức năng merge để solve conflict</td>
 </tr>
 </tbody>
 </table>
-<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">Hướng dẫn tạo ssh key và add to git account</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj4lfuh0p0001js1zwe817l39" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj59csncb0001ip5ecaaekktx" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -453,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/symfony-reposiory-practice/" data-id="cj4lfuh1d0005js1z83lgibz6" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/symfony-reposiory-practice/" data-id="cj59csnct0005ip5een53gqj9" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/best-practice/">best practice</a></li></ul>
@@ -493,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj4lfuh140004js1zr6sb51f7" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj59csnbw0000ip5enbd79f97" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -511,7 +545,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
     </div>
@@ -521,7 +555,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
     </div>
@@ -531,7 +565,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
     </div>
@@ -550,7 +584,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
