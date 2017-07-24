@@ -116,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/07/webpack-simple-2/" data-id="cj5ia9b1p000cibzwavjhovrf" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/07/webpack-simple-2/" data-id="cj5iaxo2a000eil2zzede26va" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -164,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/git-endless-story/" data-id="cj5ia9b1g000aibzwh8adf1u9" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/git-endless-story/" data-id="cj5iaxo1y0009il2zu3ume1km" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -212,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/use-custom-event-instead-generic-event/" data-id="cj5ia9b150006ibzwlnmgp4dp" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/use-custom-event-instead-generic-event/" data-id="cj5iaxo1u0006il2zxpg0n339" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/best-practice/">best practice</a></li></ul>
@@ -260,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/06/webpack-simple/" data-id="cj5ia9b160007ibzw5j1k69uq" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/06/webpack-simple/" data-id="cj5iaxo21000bil2zxqfrqn5l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -299,23 +299,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Deal-with-known-hosts"><a href="#Deal-with-known-hosts" class="headerlink" title="Deal with known hosts"></a>Deal with known hosts</h3><p>Thỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.<br>Có option trong ansible để disable check known host nhưng có 1 cách đơn giản hơn là làm 1 cái task, server nào của mình thì tự fetch và add known host vào. </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">tasks:</span> </div><div class="line"><span class="attr">  - known_hosts:</span> <span class="string">path=/home/user/.ssh/known_hosts</span> <span class="string">name='my.server.com'</span> <span class="string">key="&#123;&#123;</span> <span class="string">lookup('pipe',</span> <span class="string">'ssh-keyscan -t rsa my.server.com'</span><span class="string">)</span> <span class="string">&#125;&#125;"</span></div></pre></td></tr></table></figure>
-<h3 id="Deal-with-vault"><a href="#Deal-with-vault" class="headerlink" title="Deal with vault"></a>Deal with vault</h3><p>Thường thường thì một project sẽ có nhiều secret key và mình không nên commit vào trong code. Để giấu nó đi thì ta dùng vault.<br>Tuy nhiên hơi khoai tí là file vault thì toàn bộ mã hoá và mỗi lần mở vault ra hơi mệt. Có 1 rule khá đơn giản, ví dụ bạn cần mã hoá<br>biến mysql_db_password thì bạn sẽ đặt 1 biến tương ứng trong file vault là: vault_mysql_db_password.<br>Cấu trúc thư mục sẽ như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-- group_vars </div><div class="line">---- all  </div><div class="line">------ all.yml </div><div class="line">------ vault.yml</div></pre></td></tr></table></figure></p>
-<p>Trong file all.yml<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">mysql_db_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; vault_mysql_db_password &#125;&#125;</span>"</span></div></pre></td></tr></table></figure></p>
-<p>Trong file vault.yml<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">vault_mysql_db_password:</span> <span class="string">rat_dai_va_rat_kho_nho</span></div></pre></td></tr></table></figure></p>
-<h3 id="Multiple-environment"><a href="#Multiple-environment" class="headerlink" title="Multiple environment"></a>Multiple environment</h3><p>Có nhiều cách để setup multiple environement trong ansible. Và mình thường follow theo cách đặt tên inventory trùng với environment.<br>Ví dụ bạn có 2 environment là: prod và dev<br>Cấu trúc thư mục:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># inventory  </div><div class="line">-- prod </div><div class="line">-- dev</div><div class="line">-- group_vars  </div><div class="line">---- all.yml # các biến dùng chung </div><div class="line">---- prod # các biến cho prod env </div><div class="line">------ prod.yml </div><div class="line">------ vault.yml </div><div class="line">---- dev # các biến cho dev env </div><div class="line">------ dev.yml </div><div class="line">------ vault.yml</div></pre></td></tr></table></figure></p>
-<p>Nội dung của file inventory sẽ cần có thêm env, ví dụ cho prod:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[db]</div><div class="line">192.168.1.3</div><div class="line">[prod:children]</div><div class="line">db </div><div class="line">[prod:vars]</div><div class="line">ansible_python_interpreter=/usr/bin/python2.7</div></pre></td></tr></table></figure></p>
-<p>Để chạy 1 playbook cho prod environment:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ansible-playbook -i prod dbserver.yml</div></pre></td></tr></table></figure></p>
-<h3 id="SSH-Bastion-Host"><a href="#SSH-Bastion-Host" class="headerlink" title="SSH Bastion Host"></a>SSH Bastion Host</h3><p>Nếu infrastructure của bạn nằm toàn bộ trong private và vẫn muốn bảo mật như vậy nếu chạy ansible thì sẽ cần xài SSH bastion host.<br>Ý tưởng là mình sẽ có 1 cháu server làm vai trò bastion host. Toàn bộ các cháu trong private sẽ cho cháu này kết nối qua ssh. Và chỉ riêng mình cháu này có kết nối mạng với bên ngoài.<br>Làm cách này thì bạn sẽ yên tâm là không bao giờ ssh trực tiếp được vào production và gõ nhầm command (dại khái như rm -rf /).<br>Để làm cái này thì cấu hình ansible của bạn sẽ cần thêm 2 files: ssh.cfg và ansible.cfg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ansible.cfg</div><div class="line">[ssh_connection]</div><div class="line">ssh_args = -F ssh.cfg</div><div class="line">control_path = ~/.ssh/mux-%r@%h:%p</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># ssh.cfg</div><div class="line">Host 192.168.1.*</div><div class="line">  ProxyCommand           ssh -W %h:%p user@bastion.host</div><div class="line"></div><div class="line">Host *</div><div class="line">  ControlMaster          auto</div><div class="line">  ControlPath            ~/.ssh/mux-%r@%h:%p</div><div class="line">  ControlPersist         15m</div></pre></td></tr></table></figure>
-<p>Nếu anh em có prod và dev env nằm ở 2 private network khác nhau và setup env theo phương án ở phía trên thì có thể tweak ssh.cfg<br>cho từng bastion host khác nhau dựa vào dải ip được nhé<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># ssh.cfg</div><div class="line">Host 192.168.1.*</div><div class="line">  ProxyCommand           ssh -W %h:%p user@bastion.host</div><div class="line"></div><div class="line">Host 10.0.0.*</div><div class="line">  ProxyCommand           ssh -W %h:%p user@prod_bastion.host</div></pre></td></tr></table></figure></p>
-<p>Gần 2 năm làm với ansible mình rút ra được chừng này. Khi nào nhớ ra thêm thì bổ sung tiếp.<br>Anh em có tips hoặc tricks nào hay ho nữa thì merge request nhé ;) </p>
-
+        <p>Vài tips và trick nhỏ nhỏ để tăng độ sướng khi dùng ansible<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/ansible-tips-and-trick/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj5ia9b0l0001ibzw0rtnsm7l" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj5iaxo1a0000il2zevzmtk91" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/">ansible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
@@ -354,140 +347,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Git-configuration"><a href="#Git-configuration" class="headerlink" title="Git configuration"></a>Git configuration</h4><ol>
-<li><p>Tạo ssh key </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>Cấu hình user và email</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="Day-to-day-Work"><a href="#Day-to-day-Work" class="headerlink" title="Day-to-day Work"></a>Day-to-day Work</h4><ul>
-<li>Xem danh sách thay đổi mà bạn cần add hoặc commit. Branch hiện tại đang đứng là gì.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: Khuyến khích thường xuyên xem git status để đỡ ngậm hành.</p>
-<ul>
-<li>Thêm file vào staging.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;file&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips:</strong> <code>git add .</code> để thêm toàn bộ các thay đổi ở thư mục hiện tại.   </p>
-<ul>
-<li><p>Lỡ tay add file, giờ cần gỡ ra khỏi staging  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;file&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Commit file đã được staging.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;vừa làm gì thì viết vào&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: Commit toàn bộ thay đổi <code>git commit -am &quot;message có tâm&quot;</code>  </p>
-<ul>
-<li><p>Lỡ tay commit, redo để commit lại cho cẩn thận </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD~</div></pre></td></tr></table></figure>
-</li>
-<li><p>Đẩy toàn bộ file đang dở tay sửa vào stash  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
-</li>
-<li><p>Kéo lại thay đổi từ stash </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: quên mất có những cái gì trong stash, gõ: <code>git stash list</code>   </p>
-<ul>
-<li><p>Clear stash </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash drop</div></pre></td></tr></table></figure>
-</li>
-<li><p>Sửa file chán chê, giờ muốn quay lại trạng thái ban đầu</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- &lt;file&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: checkout file từ branch khác: <code>git checkout &lt;branch&gt; -- &lt;file&gt;</code>  </p>
-<ul>
-<li>Xoá toàn bộ file chưa được track bởi git<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clean -df</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: nắn tay 3 lần trước khi gõ. Để xem nó sẽ xoá file gì cho chắc ăn: <code>git clean -dn</code>  </p>
-<ul>
-<li>Reset files về lại mốc commit nào đó. Toàn bộ thay đổi giữ nguyên như chưa từng commit. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;branch&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: Muốn reset về master của server: <code>git reset origin/master</code>. Xài cái này để làm thành 1 commit đẹp chuẩn bị merge vào master. </p>
-<ul>
-<li>Reset về mốc commit nào đó. Xoá hết toàn bộ thay đổi. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>Tips</strong>: cực kỳ cẩn thận khi gõ. Chỉ dùng khi muốn xoá hết làm lại từ đầu.  </p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Chức năng</th>
-<th>Lưu ý</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>git clone path-to-repository</code></td>
-<td>Tạo clone của một repository lên thư mục đang đứng</td>
-<td>Nên config ssh key cho để sử dụng git thuận tiện hơn</td>
-</tr>
-<tr>
-<td><code>git push</code></td>
-<td>Đẩy những commit sau lần push trước lên branch ở origin</td>
-<td>Nên pull trước để update thay đổi ở origin branch. Hạn chế sử dụng <code>git push -f</code>. Thao tác này sẽ thay đổi toàn bộ branch ở trên server giống với branch ở local.</td>
-</tr>
-<tr>
-<td><code>git pull</code></td>
-<td>Update toàn bộ những thay đổi của branch ở trên server</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git checkout -b branch-foo</code></td>
-<td>Tạo mới branch tên là branch-foo từ branch đang đứng và chuyển sang branch-foo</td>
-<td>Những thay đổi chưa commit sẽ chuyển sang branch-foo</td>
-</tr>
-<tr>
-<td><code>git checkout branch-foo</code></td>
-<td>Chuyển sang branch có tên là branch-foo</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git branch</code></td>
-<td>Liệt kê ra toàn bộ branch trên repository và chỉ ra branch mình đang đứng</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git branch -d branch-foo</code></td>
-<td>Xoá branch có tên là branch-foo</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git push origin branch-foo</code></td>
-<td>Đẩy branch có tên là branch-foo lên remote repository</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git fetch origin</code></td>
-<td>Cập nhật origin ở remote</td>
-<td></td>
-</tr>
-<tr>
-<td><code>git reset origin/master</code></td>
-<td>Reset toàn bộ commit ở branch hiện tại giống với trạng thái của branch master</td>
-<td>Nhưng thay đổi vẫn được giữ nguyên nhưng chưa được add và commit vào</td>
-</tr>
-<tr>
-<td><code>git merge branch-foo</code></td>
-<td>Merge branch hiện tại với branch có tên là branch-foo</td>
-<td>Nên sử dụng chức năng merge để solve conflict</td>
-</tr>
-</tbody>
-</table>
-
+        <p>Các lệnh git cần nhớ để khỏi ăn hành với git<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/git-cheat-sheet/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj5ia9b0p0002ibzwyphzhjzp" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj5iaxo1s0005il2zcuko73cg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -535,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/symfony-reposiory-practice/" data-id="cj5ia9b120005ibzw9ql3snjp" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/symfony-reposiory-practice/" data-id="cj5iaxo1p0004il2zxxw7mq0a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/best-practice/">best practice</a></li></ul>
@@ -575,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj5ia9b0d0000ibzwcpa1jmce" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/hello-world/" data-id="cj5iaxo1i0001il2zr1xcc2kn" class="article-share-link">Share</a>
       
       
     </footer>

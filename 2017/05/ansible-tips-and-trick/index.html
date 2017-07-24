@@ -5,17 +5,17 @@
   
   <title>Ansible - tips and tricks | Tư Duy Đơn Giản</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Deal with known hostsThỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.Có option trong ansible để disable check">
+  <meta name="description" content="Vài tips và trick nhỏ nhỏ để tăng độ sướng khi dùng ansible">
 <meta name="keywords" content="tips,ansible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ansible - tips and tricks">
 <meta property="og:url" content="https://tuduydongian.com/2017/05/ansible-tips-and-trick/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
-<meta property="og:description" content="Deal with known hostsThỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.Có option trong ansible để disable check">
-<meta property="og:updated_time" content="2017-07-24T15:03:19.613Z">
+<meta property="og:description" content="Vài tips và trick nhỏ nhỏ để tăng độ sướng khi dùng ansible">
+<meta property="og:updated_time" content="2017-07-24T15:22:04.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible - tips and tricks">
-<meta name="twitter:description" content="Deal with known hostsThỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.Có option trong ansible để disable check">
+<meta name="twitter:description" content="Vài tips và trick nhỏ nhỏ để tăng độ sướng khi dùng ansible">
 <meta name="twitter:creator" content="@tuduydongian">
 <meta property="fb:admins" content="100000290423290">
 <meta property="fb:app_id" content="124307384811590">
@@ -110,7 +110,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Deal-with-known-hosts"><a href="#Deal-with-known-hosts" class="headerlink" title="Deal with known hosts"></a>Deal with known hosts</h3><p>Thỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.<br>Có option trong ansible để disable check known host nhưng có 1 cách đơn giản hơn là làm 1 cái task, server nào của mình thì tự fetch và add known host vào. </p>
+        <p>Vài tips và trick nhỏ nhỏ để tăng độ sướng khi dùng ansible<br><a id="more"></a></p>
+<h3 id="Deal-with-known-hosts"><a href="#Deal-with-known-hosts" class="headerlink" title="Deal with known hosts"></a>Deal with known hosts</h3><p>Thỉnh thoảng anh em sẽ thấy vài task ansible (ví dụ clone git, rsync…) đứng hình. Đơn giản là nó đòi xác thực cái server đang connect đến.<br>Có option trong ansible để disable check known host nhưng có 1 cách đơn giản hơn là làm 1 cái task, server nào của mình thì tự fetch và add known host vào. </p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">tasks:</span> </div><div class="line"><span class="attr">  - known_hosts:</span> <span class="string">path=/home/user/.ssh/known_hosts</span> <span class="string">name='my.server.com'</span> <span class="string">key="&#123;&#123;</span> <span class="string">lookup('pipe',</span> <span class="string">'ssh-keyscan -t rsa my.server.com'</span><span class="string">)</span> <span class="string">&#125;&#125;"</span></div></pre></td></tr></table></figure>
 <h3 id="Deal-with-vault"><a href="#Deal-with-vault" class="headerlink" title="Deal with vault"></a>Deal with vault</h3><p>Thường thường thì một project sẽ có nhiều secret key và mình không nên commit vào trong code. Để giấu nó đi thì ta dùng vault.<br>Tuy nhiên hơi khoai tí là file vault thì toàn bộ mã hoá và mỗi lần mở vault ra hơi mệt. Có 1 rule khá đơn giản, ví dụ bạn cần mã hoá<br>biến mysql_db_password thì bạn sẽ đặt 1 biến tương ứng trong file vault là: vault_mysql_db_password.<br>Cấu trúc thư mục sẽ như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-- group_vars </div><div class="line">---- all  </div><div class="line">------ all.yml </div><div class="line">------ vault.yml</div></pre></td></tr></table></figure></p>
 <p>Trong file all.yml<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">mysql_db_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; vault_mysql_db_password &#125;&#125;</span>"</span></div></pre></td></tr></table></figure></p>
@@ -126,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj5ia9b0l0001ibzw0rtnsm7l" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/ansible-tips-and-trick/" data-id="cj5iaxo1a0000il2zevzmtk91" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/">ansible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
