@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Asyn thật đơn giản(P2) | Tư Duy Đơn Giản</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chào các bạn, Dzung tay to đã trở lại và ăn hại như xưa. Tháng vừa rồi, Dzung đã không hoàn thành kpi khi không có bài viết về Async phần 2. Mong các bạn tha thứ và tiếp tục cày view cho Dzung. Bài nà">
+<meta name="keywords" content="js,async">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asyn thật đơn giản(P2)">
+<meta property="og:url" content="https://tuduydongian.com/2017/09/async-simple-p2/index.html">
+<meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="Chào các bạn, Dzung tay to đã trở lại và ăn hại như xưa. Tháng vừa rồi, Dzung đã không hoàn thành kpi khi không có bài viết về Async phần 2. Mong các bạn tha thứ và tiếp tục cày view cho Dzung. Bài nà">
+<meta property="og:updated_time" content="2017-09-30T15:47:32.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asyn thật đơn giản(P2)">
+<meta name="twitter:description" content="Chào các bạn, Dzung tay to đã trở lại và ăn hại như xưa. Tháng vừa rồi, Dzung đã không hoàn thành kpi khi không có bài viết về Async phần 2. Mong các bạn tha thứ và tiếp tục cày view cho Dzung. Bài nà">
+<meta name="twitter:creator" content="@tuduydongian">
+<meta property="fb:admins" content="100000290423290">
+<meta property="fb:app_id" content="124307384811590">
+  
+    <link rel="alternate" href="/atom.xml" title="Tư Duy Đơn Giản" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100038903-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=124307384811590";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK -->
+
+
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tư Duy Đơn Giản</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Nghĩ đơn giản, làm đơn giản</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/09/async-simple-p2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/async-simple-p2/" class="article-date">
+  <time datetime="2017-09-29T17:00:00.000Z" itemprop="datePublished">2017-09-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/frontend/">frontend</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Asyn thật đơn giản(P2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chào các bạn, Dzung tay to đã trở lại và ăn hại như xưa. Tháng vừa rồi, Dzung đã không hoàn thành kpi khi không có bài viết về Async phần 2. Mong các bạn tha thứ và tiếp tục cày view cho Dzung. Bài này, Dzung lại tiếp tục viết về Async sau khi nhận ra nhiều thứ bản thân đã nhầm về em gái Js. Các bạn có thể đọc lại phần 1 <a href="/2017/07/async-simple/">tại đây</a>. Ở phần 1, Dzung đã nói về <code>async</code> cũng như cơ chế hoạt động của <code>async</code>. Phần này, Dzung xin đưa ra 2 cách cơ bản để giúp bạn xử lý <code>async</code> một cách hiệu quả.<br><a id="more"></a></p>
+<h3 id="I-Callback"><a href="#I-Callback" class="headerlink" title="I. Callback"></a>I. Callback</h3><h4 id="1-Callback-la-gi"><a href="#1-Callback-la-gi" class="headerlink" title="1. Callback là gì?"></a>1. Callback là gì?</h4><p>Các bạn có thể đọc định nghĩa về callback <a href="https://en.wikipedia.org/wiki/Callback_%28computer_programming%29" target="_blank" rel="external">ở đây</a>. Nói một cách nôm na thì <code>callback là một đoạn mã  A được truyền vào một đoạn mã B như tham số, đoạn mã A sẽ được chạy khi nó được gọi trong đoạn mã B</code>. Dzung đoán mặt các bạn đầy hoang mang. Dzung cũng từng hoang mang như các bạn. Trong thực tế, nó sẽ giống như là bạn đăng ký sms banking. Bạn sẽ đăng ký với ngân hàng đoạn mã là <code>mày nhắn tin cho tao lúc nào tài khoản tao nhận được tiền</code>. Vì thế nên, mỗi lần lương được chuyển vào tài khoản của bạn. Điện thoại bạn sẽ kêu <code>ting ting</code> sẽ nhận được tin nhắn với nội dung:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Người gửi: Ngân hàng</div><div class="line">-------------------------------------------</div><div class="line">Tài khoản của bạn cộng thêm xxx xèng. Bạn hãy nhanh chóng đến cây ATM gần nhất để rút tiền trả nợ.</div></pre></td></tr></table></figure>
+<p>Ở đây, chúng ta có thể viết lại bằng js như sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">nhanTinChoTao</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Đây là nội dung tin nhắn!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dangKyDichVu</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> taiKhoan = <span class="keyword">new</span> TaiKhoan();</div><div class="line">  taiKhoan.onEvent(<span class="string">'nhan_duoc_tien'</span>, nhanTinChoTao);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Đấy, dễ hiểu hơn 1 xíu rồi đúng không các bạn?</p>
+<h4 id="2-U-roi-sao"><a href="#2-U-roi-sao" class="headerlink" title="2. Ừ, rồi sao?"></a>2. Ừ, rồi sao?</h4><p>Nếu các bạn đã viết code JS, chắc 99% các bạn đã viết đoạn code tương tự như bên dưới:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'.button'</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'Hello World'</span>); &#125;;</div></pre></td></tr></table></figure>
+<p>Ở đoạn code trên, bạn đã viết callback log ra <code>Hello World</code> khi click vào nút đó. Trong Js, callback được sử dụng rất nhiều để xử lý async. Chỉ cần lắng nghe sự kiện,lúc sự kiện xảy ra thì gọi callback, async sẽ không trở thành khó khăn nữa. Một cách xử lý async đơn giản và đầy hấp dẫn đúng không ạ. Nếu nó chưa đủ đơn giản theo dõi tiếp ví dụ sau nhé. Một task thường được sử dụng và luôn có async là gọi AJAX. Bạn sẽ gửi 1 request lên server. Bạn không thể biết trước được bao lâu thì sẽ nhận được response cũng như response sẽ như thế nào. Vì vậy, cách tốt nhất là viết callback trong trường hợp này.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Khởi tạo một XMLHttpRequest </span></div><div class="line"> <span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// Set url là /porn-hub với method là GET và async là true</span></div><div class="line">request.open(<span class="string">'GET'</span>, <span class="string">'/porn-hub'</span>, <span class="literal">true</span>);</div><div class="line"><span class="comment">// Gán sự kiện on load bằng hàm callback. Callback sẽ được gọi vào sự kiện load.</span></div><div class="line">request.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">400</span>) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Get dữ liệu từ /porn-hub thành công!'</span>);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Cá mập cắn cáp nên không lấy được dữ liệu!'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// Gửi request </span></div><div class="line">request.send();</div></pre></td></tr></table></figure>
+<p>Qua ví dụ, callback đủ đơn giản rồi đúng không ạ?</p>
+<h4 id="3-Callback-ngon-the-thi-con-dua-ra-cach-2-lam-gi"><a href="#3-Callback-ngon-the-thi-con-dua-ra-cach-2-lam-gi" class="headerlink" title="3. Callback ngon thế thì còn đưa ra cách 2 làm gì?"></a>3. Callback ngon thế thì còn đưa ra cách 2 làm gì?</h4><p>Sự thật là code sử dụng callback rất tiện. Nhưng mặt tối của callback được là <strong>callback hell</strong>. Các bạn thử tưởng tượng nếu phải viết khoảng 4 hoặc 5 cái callback lồng nhau, code của bạn sẽ nhìn như kim tự tháp và người ta thường gọi nó là <a href="https://en.wikipedia.org/wiki%2FPyramid_of_doom_%28programming%29" target="_blank" rel="external">pyramid of doom</a>. Nếu không tin bạn có thể thử viết code để thực hiện task sau bằng callback. Đầu tiên, bạn lắng nghe sự kiện <code>click</code> ở một button. Nếu có người <code>click</code> vào button đó thì sau đó 10s gửi 1 request lên server. Sau khi nhận được response, nếu status code là 200 thì log ra <code>Success!</code>. Nếu status code là 400 thì gửi lại request sau 10s. Nào, bây giờ chúng ta thử viết đoạn code trên nhé.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendAJAX</span>(<span class="params">callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">  request.open(<span class="string">'GET'</span>, <span class="string">'/porn-hub'</span>, <span class="literal">true</span>);</div><div class="line">  request.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">400</span>) &#123;</div><div class="line">      callback(request.status);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  request.send();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'.button'</span>);</div><div class="line">button.addEventListerner(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    sendAJAX(<span class="function"><span class="keyword">function</span>(<span class="params">statusCode</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(statusCode === <span class="number">200</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Success!'</span>);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span>(statusCode === <span class="number">400</span>)&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          sendAJAX(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'foo bar'</span>);</div><div class="line">          &#125;)</div><div class="line">        &#125;, <span class="number">1000</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Phía trên là đoạn code mình viết thử. Code rất phức tạp và khó đọc. Tất nhiên, nếu bạn là người có tâm bạn sẽ nghĩ đến việc viết các function cô lập ra để đễ đọc hơn. Nhưng điều đó không thực sự là <strong>root of problem</strong>, nếu bạn gặp trường hợp phải lồng nhiều callback vào nhau hơn nữa, code của bạn sẽ rất khoai. Vì vậy, solution đơn giản hơn là <strong>Promise</strong>.</p>
+<h3 id="II-Promise"><a href="#II-Promise" class="headerlink" title="II.Promise"></a>II.Promise</h3><h4 id="1-Promise-la-mot-loi-hua-a"><a href="#1-Promise-la-mot-loi-hua-a" class="headerlink" title="1. Promise là một lời hứa à?"></a>1. Promise là một lời hứa à?</h4><p>Bingo! Promise đúng là một lời hứa ngọt ngào! Nó cũng giống như những ngày cuối tháng, Dzung lại mượn tiền anh Đức để chích trà sữa. Lúc mượn tiền, Dzung hứa lúc nào có tiền sẽ trả. Lúc đó, Dzung đã khởi tạo 1 Promise. Khi Dzung trả tiền, Dzung đã <strong>resolve</strong> promise đó. Còn nếu lỡ, Dzung uống trà sữa nhiều quá, không còn khả năng chi trả. Dzung sẽ <strong>reject</strong> với message ngọt ngào như trà sữa là <code>em vỡ nợ rồi, anh em sờ vếu nhau đã lâu có mấy chục củ thì mình xí xoá anh nhỉ</code>. Message ngọt ngào như thế đỡ mất tình cảm anh em. Ai cũng lịch sự như Dzung, đâu có bài hát <code>người đừng lặng im đến thế, vì lặng im giết bạnt com chim</code>. Quay lại với vấn đề technical, ở trên là ví dụ mô tả về Promise. Áp dụng vào code, ta sẽ có:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">muonTien</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    Dzung.taiKhoan.onCoLuong = <span class="function"><span class="keyword">function</span>(<span class="params">luong</span>) </span>&#123;</div><div class="line">      resolve(luong);</div><div class="line">    &#125;;</div><div class="line">    Dzung.taiKhoan.onVoNo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Xài quá tay!'</span>));</div><div class="line">    &#125;;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">muonTien()</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Trả anh Đức!'</span>);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Nhắn tin ngọt ngào để báo vỡ nợ!'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Phía trên là code minh hoạ cách sử dụng <code>Promise</code>. Dễ như uống trà sữa đúng không ạ?</p>
+<h4 id="2-Vay-nhieu-Promise-long-nhau-co-khoai-nhu-callback-khong"><a href="#2-Vay-nhieu-Promise-long-nhau-co-khoai-nhu-callback-khong" class="headerlink" title="2. Vậy nhiều Promise lồng nhau có khoai như callback không?"></a>2. Vậy nhiều Promise lồng nhau có khoai như callback không?</h4><p>Câu trả lời là không. Promise có thể thực hiện theo thứ tự gọi là <strong>chaining</strong>. Nó có nghĩa là bạn có thể gọi <strong>then</strong>nhiều lần. Ví dụ như sau khi trả nợ, anh Đức cảm động và mời Dzung trà sữa. Chúng ta có thể viết tiếp như sau:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">muonTien()</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">luong</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Trả anh Đức!'</span>);</div><div class="line">  <span class="keyword">return</span> luong;</div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">luong</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> trasua = muaTraSua(luong);</div><div class="line">  <span class="keyword">return</span> trasua;</div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">trasua</span>) </span>&#123;</div><div class="line">  Dzung.chichTraSua(trasua);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Nhắn tin ngọt ngào để báo vỡ nợ!'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Đấy, code clean lên trông thấy đúng không ạ? Thú thực là Dzung viết <strong>Promise</strong> cũng ngu nên câu chuyện chỉ chuyển qua từ <strong>callback hell</strong> qua <strong>Promise hell</strong>. Chỉ là viết giới thiệu để các bạn tham khảo thôi.</p>
+<h4 id="3-Luu-y-be-xiu"><a href="#3-Luu-y-be-xiu" class="headerlink" title="3. Lưu ý bé xíu"></a>3. Lưu ý bé xíu</h4><p>Promise vừa được update ở ES6. Vì vậy, Promise chưa hỗ trợ toàn bộ browser nên khi sử dụng Promise các bạn cần kéo thêm <a href="https://github.com/zloirock/core-js#ecmascript-6-promise" target="_blank" rel="external">core-js</a> để có polyfill. </p>
+<h3 id="III-Ket-bai"><a href="#III-Ket-bai" class="headerlink" title="III. Kết bài"></a>III. Kết bài</h3><p>Ở trên là 2 pattern để giải quyết async ở trong JS. Callback là cách truyền thống, dễ viết, hỗ trợ đầy đủ trên mọi browser nhưng điểm yếu là dễ rơi vào callback hell. Còn Promise có thể khắc phục điểm yếu của callback giúp code clean hơn nhưng cần sử dụng library để có polly fill. Các bạn có thể lựa chọn để sử dụng một cách hợp lý. Cảm ơn các bạn đã theo dõi bài viết.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2017/09/async-simple-p2/" data-id="cj87htd3i00199yaumpmuw5yy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/async/">async</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/symfony-service-decoration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Symfony Service Decoration</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2017/09/async-simple-p2/index.html" data-width="100%" data-numposts="10"></div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 13.33px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/async-simple-p2/">Asyn thật đơn giản(P2)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/symfony-service-decoration/">Symfony Service Decoration</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/terminal-cheatsheet/">Terminal Cheat Sheet</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/customize-modal-bootrap-native/">Modal of Bootstrap</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/async-simple/">Async thật đơn giản</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 tuduydongian.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
