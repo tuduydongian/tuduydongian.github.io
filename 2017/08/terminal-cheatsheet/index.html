@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://tuduydongian.com/2017/08/terminal-cheatsheet/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
 <meta property="og:description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.Bài viết nà">
-<meta property="og:updated_time" content="2017-10-31T02:10:09.463Z">
+<meta property="og:updated_time" content="2017-11-13T16:54:15.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Terminal Cheat Sheet">
 <meta name="twitter:description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.Bài viết nà">
@@ -129,6 +129,7 @@ ga('send', 'pageview');
 <h5 id="Gen-ssh-key"><a href="#Gen-ssh-key" class="headerlink" title="Gen ssh key"></a>Gen ssh key</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
 <h5 id="Tunnel-mot-port-qua-server-trung-gian"><a href="#Tunnel-mot-port-qua-server-trung-gian" class="headerlink" title="Tunnel một port qua server trung gian"></a>Tunnel một port qua server trung gian</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># vào port 22 của server 10. thông qua server 139.</div><div class="line">$ ssh -L 22:10.10.56.30:2022 -N root@139.69.60.20</div><div class="line"># tiếp tục ssh vào sau khi đã tunnel </div><div class="line">$ ssh root@localhost -p 2022</div></pre></td></tr></table></figure>
 <h5 id="Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua"><a href="#Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua" class="headerlink" title="Xem xem domain phân giải thế nào, đã thông hết chưa"></a>Xem xem domain phân giải thế nào, đã thông hết chưa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dig google.com +trace</div></pre></td></tr></table></figure>
+<h5 id="Generate-nginx-password"><a href="#Generate-nginx-password" class="headerlink" title="Generate nginx password"></a>Generate nginx password</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># thay sammy bằng username muốn tạo </span></div><div class="line">$ sudo sh -c <span class="string">"echo -n 'sammy:' &gt;&gt; /etc/nginx/.htpasswd"</span></div><div class="line">$ sudo sh -c <span class="string">"openssl passwd -apr1 &gt;&gt; /etc/nginx/.htpasswd"</span></div></pre></td></tr></table></figure>
 <h4 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h4><h5 id="Backup-1-database"><a href="#Backup-1-database" class="headerlink" title="Backup 1 database"></a>Backup 1 database</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mysqldump -u username -pPassword dbname &gt; /path/to/file.sql</div></pre></td></tr></table></figure>
 <h4 id="Restore-database"><a href="#Restore-database" class="headerlink" title="Restore database"></a>Restore database</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mysql -u username -pPassword dbname &lt; /path/to/file.sql</div></pre></td></tr></table></figure>
 <h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><h4 id="Oh-my-ZSH"><a href="#Oh-my-ZSH" class="headerlink" title="Oh my ZSH"></a>Oh my ZSH</h4><p>Download: <a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br>Zsh thì khỏi nói về độ thần thánh. Bổ sung màu mè cho đẹp, autocomplete thông minh, cơ số plugin để hiện đại hoá terminal.   </p>
@@ -140,7 +141,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/08/terminal-cheatsheet/" data-id="cj9ez9qkc0019d5nwyus80qxw" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/08/terminal-cheatsheet/" data-id="cj9yfl9zt0016dcn2s0hvrhpb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/">terminal</a></li></ul>
