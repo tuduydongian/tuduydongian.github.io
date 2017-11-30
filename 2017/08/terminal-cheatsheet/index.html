@@ -5,14 +5,14 @@
   
   <title>Terminal Cheat Sheet | Tư Duy Đơn Giản</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.Bài viết nà">
+  <meta name="description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, ">
 <meta name="keywords" content="cheatsheet,terminal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Terminal Cheat Sheet">
 <meta property="og:url" content="https://tuduydongian.com/2017/08/terminal-cheatsheet/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
 <meta property="og:description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.Bài viết nà">
-<meta property="og:updated_time" content="2017-11-13T16:54:15.591Z">
+<meta property="og:updated_time" content="2017-11-30T16:19:20.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Terminal Cheat Sheet">
 <meta name="twitter:description" content="Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.Bài viết nà">
@@ -124,24 +124,24 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>Terminal gần như là 1 tools không thể thiếu trong công việc hàng ngày của một lập trình viên.<br>Mình là 1 fan cuồng của terminal nhưng trí nhớ không được tốt lắm, dẫn đến cực kỳ hay quên lệnh.<br>Bài viết này chủ yếu note lại các tools mình hay dùng, các commands cần thiết, ít dùng, dễ quên, khi cần toàn phải search. Có gì hay ho thì các bạn cứ merge request nhé<br><a id="more"></a></p>
-<h3 id="Cheatsheet"><a href="#Cheatsheet" class="headerlink" title="Cheatsheet"></a>Cheatsheet</h3><h5 id="Muon-luc-lai-1-lenh-da-go-nhung-chi-nho-mang-mang"><a href="#Muon-luc-lai-1-lenh-da-go-nhung-chi-nho-mang-mang" class="headerlink" title="Muốn lục lại 1 lệnh đã gõ nhưng chỉ nhớ mang máng?"></a>Muốn lục lại 1 lệnh đã gõ nhưng chỉ nhớ mang máng?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ history | grep keyword</div></pre></td></tr></table></figure>
+<h3 id="Cheatsheet"><a href="#Cheatsheet" class="headerlink" title="Cheatsheet"></a>Cheatsheet</h3><h5 id="Muon-luc-lai-1-lenh-da-go-nhung-chi-nho-mang-mang"><a href="#Muon-luc-lai-1-lenh-da-go-nhung-chi-nho-mang-mang" class="headerlink" title="Muốn lục lại 1 lệnh đã gõ nhưng chỉ nhớ mang máng?"></a>Muốn lục lại 1 lệnh đã gõ nhưng chỉ nhớ mang máng?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ history | grep keyword</span><br></pre></td></tr></table></figure>
 <p>Ví dụ: <code>history | grep &#39;git commit&#39;</code>  </p>
-<h5 id="Gen-ssh-key"><a href="#Gen-ssh-key" class="headerlink" title="Gen ssh key"></a>Gen ssh key</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
-<h5 id="Tunnel-mot-port-qua-server-trung-gian"><a href="#Tunnel-mot-port-qua-server-trung-gian" class="headerlink" title="Tunnel một port qua server trung gian"></a>Tunnel một port qua server trung gian</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># vào port 22 của server 10. thông qua server 139.</div><div class="line">$ ssh -L 22:10.10.56.30:2022 -N root@139.69.60.20</div><div class="line"># tiếp tục ssh vào sau khi đã tunnel </div><div class="line">$ ssh root@localhost -p 2022</div></pre></td></tr></table></figure>
-<h5 id="Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua"><a href="#Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua" class="headerlink" title="Xem xem domain phân giải thế nào, đã thông hết chưa"></a>Xem xem domain phân giải thế nào, đã thông hết chưa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dig google.com +trace</div></pre></td></tr></table></figure>
-<h5 id="Generate-nginx-password"><a href="#Generate-nginx-password" class="headerlink" title="Generate nginx password"></a>Generate nginx password</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># thay sammy bằng username muốn tạo </span></div><div class="line">$ sudo sh -c <span class="string">"echo -n 'sammy:' &gt;&gt; /etc/nginx/.htpasswd"</span></div><div class="line">$ sudo sh -c <span class="string">"openssl passwd -apr1 &gt;&gt; /etc/nginx/.htpasswd"</span></div></pre></td></tr></table></figure>
-<h4 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h4><h5 id="Backup-1-database"><a href="#Backup-1-database" class="headerlink" title="Backup 1 database"></a>Backup 1 database</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mysqldump -u username -pPassword dbname &gt; /path/to/file.sql</div></pre></td></tr></table></figure>
-<h4 id="Restore-database"><a href="#Restore-database" class="headerlink" title="Restore database"></a>Restore database</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mysql -u username -pPassword dbname &lt; /path/to/file.sql</div></pre></td></tr></table></figure>
-<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><h4 id="Oh-my-ZSH"><a href="#Oh-my-ZSH" class="headerlink" title="Oh my ZSH"></a>Oh my ZSH</h4><p>Download: <a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a><br>Zsh thì khỏi nói về độ thần thánh. Bổ sung màu mè cho đẹp, autocomplete thông minh, cơ số plugin để hiện đại hoá terminal.   </p>
-<h4 id="Gopass"><a href="#Gopass" class="headerlink" title="Gopass"></a>Gopass</h4><p>Download: <a href="https://www.justwatch.com/gopass/" target="_blank" rel="external">https://www.justwatch.com/gopass/</a><br>Thường nếu bạn quản trị hệ thống nhiều thì lưu trữ password là việc khá đau đầu. Lưu trong file text thì rõ ràng là cực kỳ không an toàn. Gopass cho phép bạn lưu trữ password, mã hoá bằng GPG key, lưu trữ dùng git nên rất tiện, nhất là trường hợp cần share cho team. </p>
-<h4 id="Mycli"><a href="#Mycli" class="headerlink" title="Mycli"></a>Mycli</h4><p>Download: <a href="https://www.mycli.net/" target="_blank" rel="external">https://www.mycli.net/</a><br>Nếu bạn không thích dùng UI để connect đến mysql mà thích dùng terminal thì tools này đảm bảo bao phê. Autocomplete, syntax highlight, pager, còn cần gì hơn nữa :D  </p>
-<h4 id="Httpie"><a href="#Httpie" class="headerlink" title="Httpie"></a>Httpie</h4><p>Download: <a href="https://httpie.org/" target="_blank" rel="external">https://httpie.org/</a><br>Nếu bạn thường xuyên dev api và thì bạn cũng biết CURL củ khoai thế nào, mình gần như không thể nhớ nổi mấy cái command của CURL. Httpie có thể nói là life saver.  </p>
-<h4 id="Jq"><a href="#Jq" class="headerlink" title="Jq"></a>Jq</h4><p>Download: <a href="https://stedolan.github.io/jq/" target="_blank" rel="external">https://stedolan.github.io/jq/</a><br>Httpie vẫn có 1 điểm yếu khi response trả về rất dài thì việc cuộn và kiểm tra data trong đống đó không thể nào tiện bằng UI (ví dụ Postman). Tool JQ này khá đơn giản, bổ trợ luôn cho bạn query data trong json để chỉ hiển thị hoặc format cho đẹp response.  </p>
+<h5 id="Gen-ssh-key"><a href="#Gen-ssh-key" class="headerlink" title="Gen ssh key"></a>Gen ssh key</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="Tunnel-mot-port-qua-server-trung-gian"><a href="#Tunnel-mot-port-qua-server-trung-gian" class="headerlink" title="Tunnel một port qua server trung gian"></a>Tunnel một port qua server trung gian</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># vào port 22 của server 10. thông qua server 139.</span><br><span class="line">$ ssh -L 22:10.10.56.30:2022 -N root@139.69.60.20</span><br><span class="line"># tiếp tục ssh vào sau khi đã tunnel </span><br><span class="line">$ ssh root@localhost -p 2022</span><br></pre></td></tr></table></figure>
+<h5 id="Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua"><a href="#Xem-xem-domain-phan-giai-the-nao-da-thong-het-chua" class="headerlink" title="Xem xem domain phân giải thế nào, đã thông hết chưa"></a>Xem xem domain phân giải thế nào, đã thông hết chưa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dig google.com +trace</span><br></pre></td></tr></table></figure>
+<h5 id="Generate-nginx-password"><a href="#Generate-nginx-password" class="headerlink" title="Generate nginx password"></a>Generate nginx password</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># thay sammy bằng username muốn tạo </span></span><br><span class="line">$ sudo sh -c <span class="string">"echo -n 'sammy:' &gt;&gt; /etc/nginx/.htpasswd"</span></span><br><span class="line">$ sudo sh -c <span class="string">"openssl passwd -apr1 &gt;&gt; /etc/nginx/.htpasswd"</span></span><br></pre></td></tr></table></figure>
+<h4 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h4><h5 id="Backup-1-database"><a href="#Backup-1-database" class="headerlink" title="Backup 1 database"></a>Backup 1 database</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysqldump -u username -pPassword dbname &gt; /path/to/file.sql</span><br></pre></td></tr></table></figure>
+<h4 id="Restore-database"><a href="#Restore-database" class="headerlink" title="Restore database"></a>Restore database</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u username -pPassword dbname &lt; /path/to/file.sql</span><br></pre></td></tr></table></figure>
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><h4 id="Oh-my-ZSH"><a href="#Oh-my-ZSH" class="headerlink" title="Oh my ZSH"></a>Oh my ZSH</h4><p>Download: <a href="http://ohmyz.sh/" target="_blank" rel="noopener">http://ohmyz.sh/</a><br>Zsh thì khỏi nói về độ thần thánh. Bổ sung màu mè cho đẹp, autocomplete thông minh, cơ số plugin để hiện đại hoá terminal.   </p>
+<h4 id="Gopass"><a href="#Gopass" class="headerlink" title="Gopass"></a>Gopass</h4><p>Download: <a href="https://www.justwatch.com/gopass/" target="_blank" rel="noopener">https://www.justwatch.com/gopass/</a><br>Thường nếu bạn quản trị hệ thống nhiều thì lưu trữ password là việc khá đau đầu. Lưu trong file text thì rõ ràng là cực kỳ không an toàn. Gopass cho phép bạn lưu trữ password, mã hoá bằng GPG key, lưu trữ dùng git nên rất tiện, nhất là trường hợp cần share cho team. </p>
+<h4 id="Mycli"><a href="#Mycli" class="headerlink" title="Mycli"></a>Mycli</h4><p>Download: <a href="https://www.mycli.net/" target="_blank" rel="noopener">https://www.mycli.net/</a><br>Nếu bạn không thích dùng UI để connect đến mysql mà thích dùng terminal thì tools này đảm bảo bao phê. Autocomplete, syntax highlight, pager, còn cần gì hơn nữa :D  </p>
+<h4 id="Httpie"><a href="#Httpie" class="headerlink" title="Httpie"></a>Httpie</h4><p>Download: <a href="https://httpie.org/" target="_blank" rel="noopener">https://httpie.org/</a><br>Nếu bạn thường xuyên dev api và thì bạn cũng biết CURL củ khoai thế nào, mình gần như không thể nhớ nổi mấy cái command của CURL. Httpie có thể nói là life saver.  </p>
+<h4 id="Jq"><a href="#Jq" class="headerlink" title="Jq"></a>Jq</h4><p>Download: <a href="https://stedolan.github.io/jq/" target="_blank" rel="noopener">https://stedolan.github.io/jq/</a><br>Httpie vẫn có 1 điểm yếu khi response trả về rất dài thì việc cuộn và kiểm tra data trong đống đó không thể nào tiện bằng UI (ví dụ Postman). Tool JQ này khá đơn giản, bổ trợ luôn cho bạn query data trong json để chỉ hiển thị hoặc format cho đẹp response.  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/08/terminal-cheatsheet/" data-id="cj9yfl9zt0016dcn2s0hvrhpb" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/08/terminal-cheatsheet/" data-id="cjamoufd7000lgznis6nv3iwf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/">terminal</a></li></ul>
@@ -185,7 +185,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
     </div>
   </div>
 
@@ -195,7 +195,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-async/">js async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
     </div>
   </div>
 
@@ -205,7 +205,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/js-async/" style="font-size: 10px;">js async</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
     </div>
   </div>
 
@@ -214,7 +214,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -225,6 +225,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/async-await/">Async/Await trong javascript</a>
+          </li>
         
           <li>
             <a href="/2017/10/secure-gitlab-letsencrypt/">Bảo mật Gitlab với Let&#39;s Encrypt</a>
@@ -240,10 +244,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2017/09/async-simple-p2/">Asyn thật đơn giản(P2)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/symfony-service-decoration/">Symfony Service Decoration</a>
           </li>
         
       </ul>

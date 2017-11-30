@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://tuduydongian.com/2017/05/git-cheat-sheet/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
 <meta property="og:description" content="Các lệnh git cần nhớ để khỏi ăn hành với git">
-<meta property="og:updated_time" content="2017-11-13T16:54:15.591Z">
+<meta property="og:updated_time" content="2017-11-30T16:19:20.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git cheat sheet for beginer">
 <meta name="twitter:description" content="Các lệnh git cần nhớ để khỏi ăn hành với git">
@@ -126,75 +126,75 @@ ga('send', 'pageview');
         <p>Các lệnh git cần nhớ để khỏi ăn hành với git<br><a id="more"></a></p>
 <h4 id="Git-configuration"><a href="#Git-configuration" class="headerlink" title="Git configuration"></a>Git configuration</h4><ol>
 <li><p>Tạo ssh key </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Cấu hình user và email</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="Day-to-day-Work"><a href="#Day-to-day-Work" class="headerlink" title="Day-to-day Work"></a>Day-to-day Work</h4><ul>
-<li>Xem danh sách thay đổi mà bạn cần add hoặc commit. Branch hiện tại đang đứng là gì.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<li>Xem danh sách thay đổi mà bạn cần add hoặc commit. Branch hiện tại đang đứng là gì.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: Khuyến khích thường xuyên xem git status để đỡ ngậm hành.</p>
 <ul>
-<li>Thêm file vào staging.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;file&gt;</div></pre></td></tr></table></figure>
+<li>Thêm file vào staging.   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips:</strong> <code>git add .</code> để thêm toàn bộ các thay đổi ở thư mục hiện tại.   </p>
 <ul>
 <li><p>Lỡ tay add file, giờ cần gỡ ra khỏi staging  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;file&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset &lt;file&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Commit file đã được staging.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;vừa làm gì thì viết vào&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;vừa làm gì thì viết vào&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: Commit toàn bộ thay đổi <code>git commit -am &quot;message có tâm&quot;</code>  </p>
 <ul>
 <li><p>Lỡ tay commit, redo để commit lại cho cẩn thận </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD~</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD~</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Commit sử dụng tên tuổi người khác </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -am &quot;message có tâm&quot; --author=&quot;Victim &lt;vic@tim.com&gt;&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am &quot;message có tâm&quot; --author=&quot;Victim &lt;vic@tim.com&gt;&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: nên thông báo cho khổ chủ trước, hạn chế sử dụng để tránh đổ vỡ tình anh em về sau. </p>
 <ul>
 <li><p>Đẩy toàn bộ file đang dở tay sửa vào stash  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Kéo lại thay đổi từ stash </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: quên mất có những cái gì trong stash, gõ: <code>git stash list</code>   </p>
 <ul>
 <li><p>Clear stash </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash drop</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Sửa file chán chê, giờ muốn quay lại trạng thái ban đầu</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- &lt;file&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: checkout file từ branch khác: <code>git checkout &lt;branch&gt; -- &lt;file&gt;</code>  </p>
 <ul>
-<li>Xoá toàn bộ file chưa được track bởi git<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clean -df</div></pre></td></tr></table></figure>
+<li>Xoá toàn bộ file chưa được track bởi git<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clean -df</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: nắn tay 3 lần trước khi gõ. Để xem nó sẽ xoá file gì cho chắc ăn: <code>git clean -dn</code>  </p>
 <ul>
-<li>Reset files về lại mốc commit nào đó. Toàn bộ thay đổi giữ nguyên như chưa từng commit. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset &lt;branch&gt;</div></pre></td></tr></table></figure>
+<li>Reset files về lại mốc commit nào đó. Toàn bộ thay đổi giữ nguyên như chưa từng commit. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset &lt;branch&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: Muốn reset về master của server: <code>git reset origin/master</code>. Xài cái này để làm thành 1 commit đẹp chuẩn bị merge vào master. </p>
 <ul>
-<li>Reset về mốc commit nào đó. Xoá hết toàn bộ thay đổi. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure>
+<li>Reset về mốc commit nào đó. Xoá hết toàn bộ thay đổi. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: cực kỳ cẩn thận khi gõ. Chỉ dùng khi muốn xoá hết làm lại từ đầu.  </p>
 <ul>
-<li>Xoá tất cả branches ở local mà đã được merge vào master <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --merged &gt;/tmp/merged-branches &amp;&amp; vi /tmp/merged-branches &amp;&amp; xargs git branch -d &lt;/tmp/merged-branches</div></pre></td></tr></table></figure>
+<li>Xoá tất cả branches ở local mà đã được merge vào master <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch --merged &gt;/tmp/merged-branches &amp;&amp; vi /tmp/merged-branches &amp;&amp; xargs git branch -d &lt;/tmp/merged-branches</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Tips</strong>: cái này có thể sẽ xoá cả master ở local. Khi editor hiển thị ra muốn giữ không xoá branch nào thì sửa.  </p>
@@ -268,7 +268,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cj9yfl9wu0001dcn24vchfeke" class="article-share-link">Share</a>
+      <a data-url="https://tuduydongian.com/2017/05/git-cheat-sheet/" data-id="cjamoufb10001gzniwvsbkqog" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -312,7 +312,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
     </div>
   </div>
 
@@ -322,7 +322,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-async/">js async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
     </div>
   </div>
 
@@ -332,7 +332,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/js-async/" style="font-size: 10px;">js async</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
     </div>
   </div>
 
@@ -341,7 +341,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -352,6 +352,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/async-await/">Async/Await trong javascript</a>
+          </li>
         
           <li>
             <a href="/2017/10/secure-gitlab-letsencrypt/">Bảo mật Gitlab với Let&#39;s Encrypt</a>
@@ -367,10 +371,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2017/09/async-simple-p2/">Asyn thật đơn giản(P2)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/symfony-service-decoration/">Symfony Service Decoration</a>
           </li>
         
       </ul>
