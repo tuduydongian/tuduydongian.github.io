@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install Magento 2 on Ubuntu 16.04 | Tư Duy Đơn Giản</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Đây là tutorial cài đặt Magento Community Edition (Magento Open Source) ver 2.2 với Nginx trên hệ điều hành Ubuntu 16.04. Tùy theo mục đích sử dụng mà có các cá">
+<meta name="keywords" content="tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Magento 2 on Ubuntu 16.04">
+<meta property="og:url" content="https://tuduydongian.com/2017/12/install-magento2-ubuntu1604/index.html">
+<meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="Đây là tutorial cài đặt Magento Community Edition (Magento Open Source) ver 2.2 với Nginx trên hệ điều hành Ubuntu 16.04. Tùy theo mục đích sử dụng mà có các cách start khác nhau để setup Magento. Mục">
+<meta property="og:updated_time" content="2017-12-27T01:21:05.161Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install Magento 2 on Ubuntu 16.04">
+<meta name="twitter:description" content="Đây là tutorial cài đặt Magento Community Edition (Magento Open Source) ver 2.2 với Nginx trên hệ điều hành Ubuntu 16.04. Tùy theo mục đích sử dụng mà có các cách start khác nhau để setup Magento. Mục">
+<meta name="twitter:creator" content="@tuduydongian">
+<meta property="fb:admins" content="100000290423290">
+<meta property="fb:app_id" content="124307384811590">
+  
+    <link rel="alternate" href="/atom.xml" title="Tư Duy Đơn Giản" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100038903-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=124307384811590";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK -->
+
+
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tư Duy Đơn Giản</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Nghĩ đơn giản, làm đơn giản</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/12/install-magento2-ubuntu1604" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/install-magento2-ubuntu1604/" class="article-date">
+  <time datetime="2017-12-24T17:00:00.000Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Install Magento 2 on Ubuntu 16.04
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Đây là tutorial cài đặt Magento Community Edition (Magento Open Source) ver 2.2 với Nginx trên hệ điều hành Ubuntu 16.04.</p>
+<p>Tùy theo mục đích sử dụng mà có <a href="http://devdocs.magento.com/guides/v2.2/install-gde/bk-install-guide.html" target="_blank" rel="noopener">các cách start khác nhau để setup Magento</a>. Mục tiêu của mình khi làm việc với Magento là dev custom module &amp; theme nên hướng cài đặt sẽ là <code>Integrator</code>.</p>
+<a id="more"></a>
+<h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><ul>
+<li><a href="http://devdocs.magento.com/guides/v2.2/install-gde/prereq/connect-auth.html" target="_blank" rel="noopener">Authentication keys</a></li>
+<li><a href="http://devdocs.magento.com/guides/v2.2/install-gde/prereq/php-ubuntu.html" target="_blank" rel="noopener">PHP 7.1 modules</a></li>
+<li>MySql</li>
+<li>Composer</li>
+</ul>
+<h3 id="Get-the-Magento-Open-Source-metapackage"><a href="#Get-the-Magento-Open-Source-metapackage" class="headerlink" title="Get the Magento Open Source metapackage"></a>Get the Magento Open Source metapackage</h3><p>Chuyển tới thư mục bạn muốn cài đặt Magento (giả định của bài viết này là <code>/projects</code>) và run command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition magento2</span><br></pre></td></tr></table></figure>
+<p>Nhập authention keys của bạn.</p>
+<ul>
+<li>Username: public key</li>
+<li>Password: private key</li>
+</ul>
+<p>Composer sẽ tiến hành tạo project <code>magento2</code> và downloads các dependencies. Bây giờ project của chúng ta sẽ có đường dẫn là <code>/projects/magento2</code>.</p>
+<h3 id="Add-user-to-www-data-group"><a href="#Add-user-to-www-data-group" class="headerlink" title="Add user to www-data group"></a>Add user to www-data group</h3><p>Ta sẽ tiến hành setup để <code>web server</code> và <code>file system owner</code> (ở local là chính là user hiện tại mà bạn đang login) đều có quyền write files &amp; create directories (để Magento có thể compile code, write cache,…).</p>
+<p>Note: ở đây ta sẽ dùng <code>$(whoami)</code> thay cho username phòng trường hợp bạn không biết username hiện tại của mình.</p>
+<ul>
+<li>Add user <code>$(whoami)</code> vào group <code>www-data</code>. Sau khi thực hiện thao tác này, bạn nên re-login hoặc restart máy để environment nhận được cập nhật.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -a -G www-data $(whoami)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Kiểm tra:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groups $(whoami)</span><br></pre></td></tr></table></figure>
+<p>Nếu kết quả hiển thị có <code>www-data</code> trong list groups là ok.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(whoami): foo www-data bar</span><br></pre></td></tr></table></figure>
+<h3 id="Set-ownership-and-permissions-for-the-shared-group"><a href="#Set-ownership-and-permissions-for-the-shared-group" class="headerlink" title="Set ownership and permissions for the shared group"></a>Set ownership and permissions for the shared group</h3><p>Run các commands sau tại root của project (<code>/projects/magento2</code>):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w &#123;&#125; \;</span><br><span class="line">find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws &#123;&#125; \;</span><br><span class="line">sudo chown -R :www-data .</span><br><span class="line">chmod u+x bin/magento</span><br></pre></td></tr></table></figure>
+<h3 id="Add-magento-path-Optional"><a href="#Add-magento-path-Optional" class="headerlink" title="Add magento path (Optional)"></a>Add magento path (Optional)</h3><p>Bạn nên add <code>magento bin</code> vào path để thao tác với Magento được thuận tiện hơn. Add thêm dòng sau vào file: <code>~/.profile</code> và re-login</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/projects/magento2/bin</span><br></pre></td></tr></table></figure>
+<p>Từ bây giờ bạn có thể sử dụng binary <code>magento</code> trực tiếp thay vì <code>/projects/magento2/bin/magento</code>. Kiểm tra:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.profile <span class="comment"># nếu bạn chưa re-login</span></span><br><span class="line"></span><br><span class="line">magento</span><br></pre></td></tr></table></figure>
+<h3 id="Nginx-configuration"><a href="#Nginx-configuration" class="headerlink" title="Nginx configuration"></a>Nginx configuration</h3><p>Tạo file conf của nginx:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-enabled/magento.conf</span><br></pre></td></tr></table></figure>
+<p>với nội dung như sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">upstream fastcgi_backend &#123;</span><br><span class="line">  server   unix:/var/run/php/php7.1-fpm.sock;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name mage.local; <span class="comment"># địa chỉ truy cập: http://mage.local hoặc mage.local</span></span><br><span class="line">  <span class="built_in">set</span> <span class="variable">$MAGE_ROOT</span> /projects/magento2; <span class="comment"># đường dẫn tới project root</span></span><br><span class="line">  include /projects/magento2/nginx.conf.sample; <span class="comment"># include nginx.conf.sample từ project root</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sau khi hoàn thành, tiến hành restart Nginx: (hoặc reload)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<h3 id="Edit-hosts-file"><a href="#Edit-hosts-file" class="headerlink" title="Edit hosts file"></a>Edit hosts file</h3><p>Sửa file hosts trỏ <code>mage.local</code> vào <code>localhost</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/hosts</span><br></pre></td></tr></table></figure>
+<p>Thêm <code>mage.local</code> vào phía sau dải <code>localhost</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1       localhost foo.local mage.local</span><br></pre></td></tr></table></figure>
+<h3 id="Create-database"><a href="#Create-database" class="headerlink" title="Create database"></a>Create database</h3><p>Tiến hành tạo database với name là <code>magento2</code> (bạn có thể grant thêm quyền nếu muốn, vì ở môi trường dev nên mình thường dùng luôn tài khoản <code>root</code>).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database magento2;</span><br><span class="line"><span class="built_in">exit</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Tới đây bạn có thể tiến hành cài đặt Magento theo 2 cách:</p>
+<h4 id="Setup-Wizard"><a href="#Setup-Wizard" class="headerlink" title="Setup Wizard"></a>Setup Wizard</h4><p>Mở trình duyệt và access vào url <code>mage.local</code> và tiến hành cài dặt.</p>
+<p>Đây là cách mà mình khyến nghị, bởi vì:</p>
+<ul>
+<li>Dùng UI các thông số rõ ràng, giao diện trực quan.</li>
+<li>Khi setup với command line, đường dẫn tới admin luôn kèm theo đoạn token phía sau, vd: <code>mage.local/admin_foobar</code> (có thể sửa lại sau này). Với UI có thể handle được admin access url (bạn có thể truy cập vào admin với đường dẫn đẹp: <code>mage.local/admin</code>)</li>
+</ul>
+<h4 id="Command-line"><a href="#Command-line" class="headerlink" title="Command line"></a>Command line</h4><p>Nếu vẫn muốn sử dụng command line thì command bạn cần chạy có dạng như sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magento setup:install --base-url=http://mage.local --db-host=localhost --db-name=magento --db-user=root --db-password=mypassword --admin-firstname=Admin --admin-lastname=Super --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1</span><br></pre></td></tr></table></figure>
+<p>Tham khảo thêm các options: <a href="http://devdocs.magento.com/guides/v2.2/install-gde/install/cli/install-cli-install.html" target="_blank" rel="noopener">http://devdocs.magento.com/guides/v2.2/install-gde/install/cli/install-cli-install.html</a></p>
+<h3 id="Enable-developer-mode"><a href="#Enable-developer-mode" class="headerlink" title="Enable developer mode"></a>Enable developer mode</h3><p>Khi dev ở local, bạn cần chuyển qua developer mode. Các lợi ích mà nó đem lại bạn có thể xem ở đây: <a href="http://devdocs.magento.com/guides/v2.2/config-guide/bootstrap/magento-modes.html" target="_blank" rel="noopener">http://devdocs.magento.com/guides/v2.2/config-guide/bootstrap/magento-modes.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">magento deploy:mode:show</span><br><span class="line">magento deploy:mode:<span class="built_in">set</span> developer</span><br></pre></td></tr></table></figure>
+<h3 id="Install-sample-data"><a href="#Install-sample-data" class="headerlink" title="Install sample data"></a>Install sample data</h3><p>Nếu là lần đầu làm quen với Magento, bạn có thể install sample data và đi dạo vòng quanh để hiểu thêm về hệ thống.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magento sampledata:deploy</span><br></pre></td></tr></table></figure>
+<p>Done! Quá trình cài đặt của bạn đã hoàn tất. Việc của bạn bây giờ là nuốt hành với Magento. Good luck!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2017/12/install-magento2-ubuntu1604/" data-id="cjbodm90a001x9bmwu3csxevg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/browser-automation-chrome-headless-puppeteer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tự động hoá browser với Chrome headless - Puppeteer - Nodejs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2017/12/install-magento2-ubuntu1604/index.html" data-width="100%" data-numposts="10"></div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome-headless/">chrome headless</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flexbox/">flexbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-async/">js async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/chrome-headless/" style="font-size: 10px;">chrome headless</a> <a href="/tags/flexbox/" style="font-size: 10px;">flexbox</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/js-async/" style="font-size: 10px;">js async</a> <a href="/tags/puppeteer/" style="font-size: 10px;">puppeteer</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 12.5px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/install-magento2-ubuntu1604/">Install Magento 2 on Ubuntu 16.04</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/browser-automation-chrome-headless-puppeteer/">Tự động hoá browser với Chrome headless - Puppeteer - Nodejs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/flex-box-css/">Tìm hiểu về Flexbox trong CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/async-await/">Async/Await trong javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/php-type-hinting/">PHP Type hinting</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 tuduydongian.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
