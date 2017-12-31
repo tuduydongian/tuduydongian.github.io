@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sử dụng một số methods thông dụng với Array trong javascript | Tư Duy Đơn Giản</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Trong javascript, Arrays là tập hợp một danh sách các phần tử. Javascript cung cấp nhiều built-in methods để làm việc với array. Các phương thức này được chia làm 2 loại: Mutator methods và Accessor m">
+<meta name="keywords" content="js array prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sử dụng một số methods thông dụng với Array trong javascript">
+<meta property="og:url" content="https://tuduydongian.com/2017/12/array-prototype/index.html">
+<meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="Trong javascript, Arrays là tập hợp một danh sách các phần tử. Javascript cung cấp nhiều built-in methods để làm việc với array. Các phương thức này được chia làm 2 loại: Mutator methods và Accessor m">
+<meta property="og:updated_time" content="2017-12-31T14:31:34.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sử dụng một số methods thông dụng với Array trong javascript">
+<meta name="twitter:description" content="Trong javascript, Arrays là tập hợp một danh sách các phần tử. Javascript cung cấp nhiều built-in methods để làm việc với array. Các phương thức này được chia làm 2 loại: Mutator methods và Accessor m">
+<meta name="twitter:creator" content="@tuduydongian">
+<meta property="fb:admins" content="100000290423290">
+<meta property="fb:app_id" content="124307384811590">
+  
+    <link rel="alternate" href="/atom.xml" title="Tư Duy Đơn Giản" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100038903-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=124307384811590";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK -->
+
+
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tư Duy Đơn Giản</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Nghĩ đơn giản, làm đơn giản</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/12/array-prototype" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/array-prototype/" class="article-date">
+  <time datetime="2017-12-30T17:00:00.000Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sử dụng một số methods thông dụng với Array trong javascript
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong javascript, Arrays là tập hợp một danh sách các phần tử. Javascript cung cấp nhiều built-in methods để làm việc với array. Các phương thức này được chia làm 2 loại: Mutator methods và Accessor methods.<br><a id="more"></a></p>
+<h2 id="Mutator-methods"><a href="#Mutator-methods" class="headerlink" title="Mutator methods"></a>Mutator methods</h2><p>Còn gọi là setter methods, là các methods chỉnh sửa trực tiếp trên array đầu vào. Một số mutator methods thông dụng: </p>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h3><p>Xóa phần tử cuối cùng khỏi array, trả về phần tử bị xóa.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'fish'</span>];</span><br><span class="line">animals.pop();</span><br><span class="line"><span class="built_in">console</span>.log(animals);</span><br><span class="line"><span class="comment">// output: ['dog', 'cat']</span></span><br></pre></td></tr></table></figure>
+<h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h3><p>Xóa phần tử đầu tiên khỏi array, trả về phần tử bị xóa.</p>
+<h3 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h3><p>Thêm vào cuối array một hoặc nhiều phần tử, trả về kích thước mới của array.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'dog'</span>, <span class="string">'cat'</span>];</span><br><span class="line">animals.push(<span class="string">'fish'</span>, <span class="string">'tiger'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(animals);</span><br><span class="line"><span class="comment">// output: ['dog', 'cat', 'fish', 'tiger']</span></span><br></pre></td></tr></table></figure>
+<h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h3><p>Thêm vào đầu array một hoặc nhiều phần tử, trả về kích thước mới của array.</p>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h3><p>Thêm hoặc xóa một hay nhiều phần tử của array tại vị trí xác định, trả về mảng các phần tử bị xóa.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.splice(start[, deleteCount[, item1[, item2[, ...]]]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'fish'</span>];</span><br><span class="line">animals.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">'tiger'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(animals)</span><br><span class="line"><span class="comment">// output: ['dog', 'tiger', 'fish']</span></span><br><span class="line">animals.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'cat'</span>);</span><br><span class="line"><span class="comment">// output: ['dog', 'cat', 'tiger', 'fish']</span></span><br></pre></td></tr></table></figure>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><p>Đảo ngược thứ tự các phần tử trong array</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'fish'</span>];</span><br><span class="line">animals.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(animals)</span><br><span class="line"><span class="comment">// output: ['fish', 'cat', 'dog']</span></span><br></pre></td></tr></table></figure>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>Sắp xếp các phần tử trong array, trả về chính nó sau khi được sắp xếp</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line">numbers.sort();</span><br><span class="line"><span class="built_in">console</span>.log(numbers)</span><br><span class="line"><span class="comment">// output: [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p>Ta cũng có thể  thay đổi cách sắp xếp</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line">numbers.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (b - a));</span><br><span class="line"><span class="built_in">console</span>.log(numbers)</span><br><span class="line"><span class="comment">// output: [3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+<p>Sắp xếp dựa theo một thuộc tính của object</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cars = [&#123;<span class="attr">name</span>: <span class="string">'Audi'</span>, <span class="attr">price</span>: <span class="number">1000</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'Toyota'</span>, <span class="attr">price</span>: <span class="number">100</span>&#125;];</span><br><span class="line">cars.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (a.price - b.price));</span><br><span class="line"><span class="built_in">console</span>.log(cars)</span><br><span class="line"><span class="comment">// output: [&#123;name: 'Toyota', price: 100&#125;, &#123;name: 'Audi', price: 1000&#125;]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Accessor-methos"><a href="#Accessor-methos" class="headerlink" title="Accessor methos"></a>Accessor methos</h2><p>Còn gọi là getter methods, trả về một array mới, array ban đầu vẫn được giữ nguyên.</p>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><p>Copy các phần tử được chỉ định của array ban đầu sang một array mới.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.slice([begin[, end]])</span><br></pre></td></tr></table></figure>
+<p>Nếu không khai báo tham số, mặc định begin là vị trí bắt đầu, end là cuối array.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'fish'</span>];</span><br><span class="line"><span class="keyword">const</span> newArr = animals.slice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br><span class="line"><span class="comment">// output: ['dog', 'cat']</span></span><br></pre></td></tr></table></figure>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><p>Trả về array mới là kết hợp của 2 hay nhiều array ban đầu.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> odd = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> even = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">const</span> numbers = odd.concat(even);</span><br><span class="line"><span class="built_in">console</span>.log(numbers);</span><br><span class="line"><span class="comment">// output: [1, 3, 5, 2, 4, 6]</span></span><br></pre></td></tr></table></figure>
+<h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><p>Tìm và trả về phần tử đầu tiên trong array thỏa mãn điều kiện cho trước.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numbers.find(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">2</span> === <span class="number">0</span>));</span><br><span class="line"><span class="comment">// output: 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p>Tạo một array mới với mỗi phần tử là phần tử của array cũ sau khi xử lý trong function.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numbers.map(<span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>));</span><br><span class="line"><span class="comment">// output: [2, 3, 4];</span></span><br><span class="line"><span class="built_in">console</span>.log(numbers.map(<span class="function"><span class="params">x</span> =&gt;</span> (&#123;<span class="attr">value</span>: x&#125;)));</span><br><span class="line"><span class="comment">// output: [&#123;value: 1&#125;, &#123;value: 2&#125;, &#123;value: 3&#125;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><p>Giống với find(), nhưng filter trả về một array mới gồm tất cả các phần tử của array ban đầu thỏa mãn điều kiện cho trước.</p>
+<h3 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h3><p>Kiểm tra xem tất cả phần tử của array có thỏa mãn điều kiện, trả về true hoặc false.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numbers.every(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">2</span> === <span class="number">0</span>));</span><br><span class="line"><span class="comment">// output: false</span></span><br><span class="line"><span class="built_in">console</span>.log(numbers.every(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">1</span> === <span class="number">0</span>));</span><br><span class="line"><span class="comment">// output: true</span></span><br></pre></td></tr></table></figure>
+<h3 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h3><p>Kiểm tra nếu có ít nhất một phần tử trong array thỏa mãn điều kiện, trả về true hoặc false.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(numbers.some(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">2</span> === <span class="number">0</span>));</span><br><span class="line"><span class="comment">// output: true</span></span><br></pre></td></tr></table></figure>
+<p>Some thường kết hợp với các function khác để xử lý đồng thời nhiều array:</p>
+<ul>
+<li>Kiểm tra nếu có bất kỳ phần tử nào của 2 array trùng nhau.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr1.some(<span class="function"><span class="params">x</span> =&gt;</span> arr2.some(<span class="function"><span class="params">y</span> =&gt;</span> x === y)));</span><br><span class="line"><span class="comment">// output: true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Trả về các phần tử của một array mà trong array còn lại cũng có các phần tử đó.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr1.filter(<span class="function"><span class="params">x</span> =&gt;</span> arr2.some(<span class="function"><span class="params">y</span> =&gt;</span> x === y)));</span><br><span class="line"><span class="comment">// output: [1]</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2017/12/array-prototype/" data-id="cjbuvmz5a002084nkhq2199wy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-array-prototype/">js array prototype</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/install-magento2-ubuntu1604/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Install Magento 2 on Ubuntu 16.04</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2017/12/array-prototype/index.html" data-width="100%" data-numposts="10"></div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js,</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome-headless/">chrome headless</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flexbox/">flexbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-array-prototype/">js array prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-async/">js async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 10px;">async</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/chrome-headless/" style="font-size: 10px;">chrome headless</a> <a href="/tags/flexbox/" style="font-size: 10px;">flexbox</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/js-array-prototype/" style="font-size: 10px;">js array prototype</a> <a href="/tags/js-async/" style="font-size: 10px;">js async</a> <a href="/tags/puppeteer/" style="font-size: 10px;">puppeteer</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 12.5px;">tips</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/array-prototype/">Sử dụng một số methods thông dụng với Array trong javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/install-magento2-ubuntu1604/">Install Magento 2 on Ubuntu 16.04</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/browser-automation-chrome-headless-puppeteer/">Tự động hoá browser với Chrome headless - Puppeteer - Nodejs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/flex-box-css/">Tìm hiểu về Flexbox trong CSS</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/async-await/">Async/Await trong javascript</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 tuduydongian.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
