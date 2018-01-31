@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017 | Tư Duy Đơn Giản</title>
+  <title>Thực thi javascript es2017 trên aws lambda | Tư Duy Đơn Giản</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tư Duy Đơn Giản">
-<meta property="og:url" content="https://tuduydongian.com/archives/2017/page/3/index.html">
+  <meta name="description" content="AWS Lambda được giới thiệu vào khoảng năm 2014, và kể từ đó cho đến nay thì serverless architecture đang ngày càng trở nên phổ biến.Một điều khá thất vọng là runtime hiện tại của AWS Lambda là nodejs">
+<meta name="keywords" content="aws lambda,babel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thực thi javascript es2017 trên aws lambda">
+<meta property="og:url" content="https://tuduydongian.com/2018/01/es2017-lambda/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="AWS Lambda được giới thiệu vào khoảng năm 2014, và kể từ đó cho đến nay thì serverless architecture đang ngày càng trở nên phổ biến.Một điều khá thất vọng là runtime hiện tại của AWS Lambda là nodejs">
+<meta property="og:updated_time" content="2018-01-31T13:18:28.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tư Duy Đơn Giản">
+<meta name="twitter:title" content="Thực thi javascript es2017 trên aws lambda">
+<meta name="twitter:description" content="AWS Lambda được giới thiệu vào khoảng năm 2014, và kể từ đó cho đến nay thì serverless architecture đang ngày càng trở nên phổ biến.Một điều khá thất vọng là runtime hiện tại của AWS Lambda là nodejs">
 <meta name="twitter:creator" content="@tuduydongian">
 <meta property="fb:admins" content="100000290423290">
 <meta property="fb:app_id" content="124307384811590">
@@ -92,82 +97,83 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/git-cheat-sheet/" class="archive-article-date">
-  <time datetime="2017-05-27T17:00:00.000Z" itemprop="datePublished">May 28</time>
+        <section id="main"><article id="post-2018/01/es2017-lambda" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/es2017-lambda/" class="article-date">
+  <time datetime="2018-01-29T17:00:00.000Z" itemprop="datePublished">2018-01-30</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/git-cheat-sheet/">Git cheat sheet for beginer</a>
+    <h1 class="article-title" itemprop="name">
+      Thực thi javascript es2017 trên aws lambda
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/symfony-reposiory-practice/" class="archive-article-date">
-  <time datetime="2017-05-26T17:00:00.000Z" itemprop="datePublished">May 27</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/symfony-reposiory-practice/">Symfony repository - a little practice</a>
-    </h1>
-  
+        <p>AWS Lambda được giới thiệu vào khoảng năm 2014, và kể từ đó cho đến nay thì serverless architecture đang ngày càng trở nên phổ biến.<br>Một điều khá thất vọng là runtime hiện tại của AWS Lambda là nodejs 6.10.3<br>Nếu bạn là 1 nodejs developer và đã quen với những tính năng nhưng async/ await trong es2017 thì không khỏi thất vọng.<br>Bài viết này sẽ hướng dẫn bạn chạy es2017 (hoặc bất kỳ next feature nào) trên AWS Lambda.<br><a id="more"></a></p>
+<blockquote>
+<p>Nếu bạn chưa biết serverless architecture là gì thì nó là 1 dạng chương trình mà trong đó phụ thuộc vào các bên thứ 3 (Backend as a service <code>BaaS</code> hoặc Function as a service <code>FaaS</code>)<br>Serverless nghĩa là bây giờ application của bạn sẽ không có server nào cả. Bạn chỉ cần code các backend hoặc function và bên thứ 3 sẽ làm tất tần tật phần còn lại cho bạn  </p>
+</blockquote>
+<h2 id="Lam-the-nao-de-thuc-thi-es2017-tren-aws-lambda"><a href="#Lam-the-nao-de-thuc-thi-es2017-tren-aws-lambda" class="headerlink" title="Làm thế nào để thực thi es2017 trên aws lambda?"></a>Làm thế nào để thực thi es2017 trên aws lambda?</h2><p>Nếu bạn đã quen với workflow sử dụng các bundler như webpack thì bạn chắc đã khá quen với 1 tool tên là <code>Babel</code><br>Babel giúp ta transform code của mình sang các es thấp hơn, đảm bảo tính tương thích.<br>Thực ra ở đây không hẳn chúng ta chạy es2017, mà là chúng ta sẽ viết code trên es2017, sau đó dùng babel transform sang code tương thích với nodejs 6.10.3, đóng gói lại và upload lên AWS Lambda.  </p>
+<blockquote>
+<p>Hiện tại thì Nodejs LTS version 8.x đã hỗ trợ gần hết es2017 nên tương lai gần khi AWS Lambda update runtime lên 8.x thì mình không phải lo migrate code nữa &lt;3 </p>
+</blockquote>
+<p>Trước tiên chúng ta cần tải về các thư viện liên quan đến babel nhé<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev babel-cli babel-core babel-preset-env</span><br></pre></td></tr></table></figure></p>
+<p>Cấu hình babel để transform ra nodejs 6.10.3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    [</span><br><span class="line">      &quot;env&quot;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;targets&quot;: &#123; &quot;node&quot;: &quot;6.10.3&quot; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Project của chúng ta sẽ bố trí cây thư mục như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">|-- .babelrc </span><br><span class="line">|-- package.json</span><br><span class="line">|-- src </span><br><span class="line">|-- dist </span><br><span class="line">|-- node_modules</span><br></pre></td></tr></table></figure></p>
+<p>Để tự động hoá quá trình build thì ta sẽ thêm vào package.json 1 vài scripts:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "build": "npm run build:init &amp;&amp; npm run build:js &amp;&amp; npm run build:install",</span><br><span class="line">  "build:init": "rm -rf dist &amp;&amp; mkdir dist",</span><br><span class="line">  "build:js": "cd src &amp;&amp; babel . -d ../dist",</span><br><span class="line">  "build:install": "cp package.json dist/ &amp;&amp; cd dist &amp;&amp; npm install --production"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Giải thích sơ bộ 1 tí thì mỗi khi mình cần build code, chúng ta sẽ phải:  </p>
+<ol>
+<li>Xoá và tạo lại thư mục dist để đảm bảo build không dính các file cũ  </li>
+<li>Dùng babel để transform code ở source sang dist </li>
+<li>copy file package.json vào dist và install các package của production  </li>
+</ol>
+<p>Bây giờ bạn thử viết 1 handler, build và up lên AWS Lambda xem đã chạy chưa nhé<br><figure class="highlight js"><figcaption><span>src/index.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.handler = <span class="keyword">async</span> (event, context, callback) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> doSomething();</span><br><span class="line"></span><br><span class="line">  callback(<span class="literal">null</span>, result);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>P/s: với Babel thì bạn có thể chạy bất kỳ es nào ở stage nào mà bạn muốn. Tuy nhiên nếu dùng quá nhiều tính năng mới và không tối ưu hoá build thì code được build ra sẽ cho performance khá thấp. Tốt nhất bạn nên cân bằng giữa những feature mà bạn thật sự cần và dung lượng code build ra. </p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/hello-world/" class="archive-article-date">
-  <time datetime="2017-05-24T17:00:00.000Z" itemprop="datePublished">May 25</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/hello-world/">Hello world!</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2018/01/es2017-lambda/" data-id="cjd33o9ti002i6hn7h0m8m4yt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws-lambda/">aws lambda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/babel/">babel</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/array-prototype/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sử dụng một số methods thông dụng với Array trong javascript</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2017/page/2/">&laquo; __('prev')</a><a class="page-number" href="/archives/2017/">1</a><a class="page-number" href="/archives/2017/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2018/01/es2017-lambda/index.html" data-width="100%" data-numposts="10"></div>
+</section>
 </section>
         
           <aside id="sidebar">
