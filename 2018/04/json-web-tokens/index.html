@@ -3,15 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017/9 | Tư Duy Đơn Giản</title>
+  <title>JSON Web Tokens | Tư Duy Đơn Giản</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tư Duy Đơn Giản">
-<meta property="og:url" content="https://tuduydongian.com/archives/2017/09/index.html">
+  <meta name="description" content="JSON Web Token (JWT) là một tiêu chuẩn để truyền thông tin an toàn dưới dạng JSON object, được định nghĩa tại https://tools.ietf.org/html/rfc7519. Thông tin bên trong được xác thực bởi chữ ký số.">
+<meta name="keywords" content="jwt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON Web Tokens">
+<meta property="og:url" content="https://tuduydongian.com/2018/04/json-web-tokens/index.html">
 <meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="JSON Web Token (JWT) là một tiêu chuẩn để truyền thông tin an toàn dưới dạng JSON object, được định nghĩa tại https://tools.ietf.org/html/rfc7519. Thông tin bên trong được xác thực bởi chữ ký số.">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://tuduydongian.com/images/jwt-01.png">
+<meta property="og:updated_time" content="2018-05-02T15:03:33.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tư Duy Đơn Giản">
+<meta name="twitter:title" content="JSON Web Tokens">
+<meta name="twitter:description" content="JSON Web Token (JWT) là một tiêu chuẩn để truyền thông tin an toàn dưới dạng JSON object, được định nghĩa tại https://tools.ietf.org/html/rfc7519. Thông tin bên trong được xác thực bởi chữ ký số.">
+<meta name="twitter:image" content="https://tuduydongian.com/images/jwt-01.png">
 <meta name="twitter:creator" content="@tuduydongian">
 <meta property="fb:admins" content="100000290423290">
 <meta property="fb:app_id" content="124307384811590">
@@ -93,78 +100,101 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/09/optimize-webpack-bundle/" class="archive-article-date">
-  <time datetime="2017-09-29T17:00:00.000Z" itemprop="datePublished">Sep 30</time>
+        <section id="main"><article id="post-2018/04/json-web-tokens" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/json-web-tokens/" class="article-date">
+  <time datetime="2018-04-09T17:00:00.000Z" itemprop="datePublished">2018-04-10</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/backend/">backend</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/optimize-webpack-bundle/">Tối ưu hoá webpack bundle</a>
+    <h1 class="article-title" itemprop="name">
+      JSON Web Tokens
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/09/async-simple-p2/" class="archive-article-date">
-  <time datetime="2017-09-29T17:00:00.000Z" itemprop="datePublished">Sep 30</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/async-simple-p2/">Asyn thật đơn giản(P2)</a>
-    </h1>
-  
+        <p>JSON Web Token (JWT) là một tiêu chuẩn để truyền thông tin an toàn dưới dạng JSON object, được định nghĩa tại <a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc7519</a>. Thông tin bên trong được xác thực bởi chữ ký số.<br><a id="more"></a></p>
+<p>JWT thường được sử dụng để xác thực người dùng. Ta cùng xem xét kịch bản sau để thấy cách JWT hoạt động.</p>
+<p>Hệ thống gồm 3 thực thể chính là người dùng, máy chủ xác thực và máy chủ ứng dụng.</p>
+<p><img src="/images/jwt-01.png" alt=""></p>
+<p>Người dùng trước tiên đăng nhập vào hệ thống bằng thông tin đăng nhập. Máy chủ xác thực có nhiệm vụ kiểm tra thông tin người dùng, đồng thời trả về một chuỗi JWT. Từ đây, mỗi lần người dùng thực hiện một lời gọi API tới máy chủ ứng dụng đều đính kèm theo chuỗi JWT. Máy chủ ứng dụng sẽ kiểm tra rằng liệu chuỗi JWT có được tạo ra bởi máy chủ xác thực, từ đó biết được người dùng có hợp lệ hay không.</p>
+<h3 id="Cau-truc-cua-JWT"><a href="#Cau-truc-cua-JWT" class="headerlink" title="Cấu trúc của JWT"></a>Cấu trúc của JWT</h3><p>JWT bao gồm 3 thành phần, cách nhau bằng dấu chấm (.):</p>
+<ul>
+<li>Header</li>
+<li>Payload</li>
+<li>Signature</li>
+</ul>
+<p>Ta cùng đi vào chi tiết từng thành phần</p>
+<p><strong>Header</strong><br>Header bao gồm 2 thành phần: Kiểu của token, ở đây là JWT; và thuật toán dùng để mã hóa (HMAC, RSA)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;alg&quot;: &quot;HS256&quot;,</span><br><span class="line">  &quot;typ&quot;: &quot;JWT&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sau khi mã hóa object trên bằng Base64, ta được thành phần đầu tiên của JWT.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><br></pre></td></tr></table></figure>
+<p><strong>Payload</strong><br>Payload là object chứa thông tin cần trao đổi, bạn có thể đặt bất cứ thông tin nào vào đây, </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;John&quot;,</span><br><span class="line">  &quot;admin&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Tương tự, payload cũng được mã hóa bằng Base64.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJuYW1lIjoiSm9obiIsImFkbWluIjp0cnVlfQ</span><br></pre></td></tr></table></figure>
+<p><strong>Signature</strong><br>Là thành phần cuối cùng của JWT, dùng để xác minh tính xác thực của nguồn dữ liệu, như trong ví dụ ở phần đầu, thì chữ ký dùng để kiểm tra liệu JWT được tạo ra bởi máy chủ xác thực. Chữ ký được tạo thành bằng cách mã hóa chuỗi tạo bởi header và payload với thuật toán mã hóa được khai báo ở header.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = base64urlEncode( header ) + “.” + base64urlEncode( payload )</span><br><span class="line">signature = Hash( data, secret );</span><br></pre></td></tr></table></figure>
+<p>Ví dụ với secret là ‘mysecret’, ta được singature là:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cqt0aaqownd82rRw-b93uF9OAwen1xMCvvypRSeIitE</span><br></pre></td></tr></table></figure>
+<p>Kết hợp 3 thành phần trên ta được chuỗi JWT hoàn chỉnh.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImFkbWluIjp0cnVlfQ.Cqt0aaqownd82rRw-b93uF9OAwen1xMCvvypRSeIitE</span><br></pre></td></tr></table></figure>
+<p>Từ cấu trúc của JWT, dễ thấy thông tin trong JWT không được ẩn đi, mà có thể xem bởi bất cứ ai. Với những thông tin bí mật, ta cần mã hóa nó trước khi sử dụng JWT, bởi mục đích của việc sử dụng JWT là để xác thực nguồn gốc, độ tin cậy của thông tin.</p>
+<p>Để xác minh JWT được tạo bởi đúng nguồn, người xác minh cần biết được thuật toán dùng để mã hóa, như ở trên là HS256, cũng như khóa bí mật của thuật toán.</p>
+<p>Như vậy qua bài viết này, ta hiểu được JWT là gì, cách thực để tạo và xác thực JWT, cũng như cách thức JWT được sử dụng trong thực tế.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/09/symfony-service-decoration/" class="archive-article-date">
-  <time datetime="2017-09-17T17:00:00.000Z" itemprop="datePublished">Sep 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/symfony-service-decoration/">Symfony Service Decoration</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2018/04/json-web-tokens/" data-id="cjgp8hv9z002d73nsp7atp22n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jwt/">jwt</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/build-your-first-app-with-vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Tìm hiểu vue thông qua xây dựng ứng dụng to do list (Part 1)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/01/symfony-validator-constraint/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">How to pass parameters to custom validation constraint in Symfony</div>
+    </a>
   
+</nav>
 
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2018/04/json-web-tokens/index.html" data-width="100%" data-numposts="10"></div>
+</section>
 </section>
         
           <aside id="sidebar">
