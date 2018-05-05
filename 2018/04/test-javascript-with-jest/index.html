@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Test javascript code với jest | Tư Duy Đơn Giản</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Test (hay automated test) là một phần không thể thiếu của quy trình phát triển phần mềm.Với những dự án mang tính chất phát triển lâu dài và có quy trình phát triển nhanh thì automated test là điều tố">
+<meta name="keywords" content="automated test,jest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test javascript code với jest">
+<meta property="og:url" content="https://tuduydongian.com/2018/04/test-javascript-with-jest/index.html">
+<meta property="og:site_name" content="Tư Duy Đơn Giản">
+<meta property="og:description" content="Test (hay automated test) là một phần không thể thiếu của quy trình phát triển phần mềm.Với những dự án mang tính chất phát triển lâu dài và có quy trình phát triển nhanh thì automated test là điều tố">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-05T09:15:38.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Test javascript code với jest">
+<meta name="twitter:description" content="Test (hay automated test) là một phần không thể thiếu của quy trình phát triển phần mềm.Với những dự án mang tính chất phát triển lâu dài và có quy trình phát triển nhanh thì automated test là điều tố">
+<meta name="twitter:creator" content="@tuduydongian">
+<meta property="fb:admins" content="100000290423290">
+<meta property="fb:app_id" content="124307384811590">
+  
+    <link rel="alternate" href="/atom.xml" title="Tư Duy Đơn Giản" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-100038903-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=124307384811590";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Facebook SDK -->
+
+
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tư Duy Đơn Giản</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Nghĩ đơn giản, làm đơn giản</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tuduydongian.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018/04/test-javascript-with-jest" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/test-javascript-with-jest/" class="article-date">
+  <time datetime="2018-04-23T17:00:00.000Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Test javascript code với jest
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Test (hay automated test) là một phần không thể thiếu của quy trình phát triển phần mềm.<br>Với những dự án mang tính chất phát triển lâu dài và có quy trình phát triển nhanh thì automated test là điều tối quan trọng.<br>Bài viết này mình sẽ chia sẻ một vài kinh nghiệm viết test với javascript (Nodejs) sử dụng Jest.<br><a id="more"></a></p>
+<h2 id="Tai-sao-lai-la-Jest"><a href="#Tai-sao-lai-la-Jest" class="headerlink" title="Tại sao lại là Jest"></a>Tại sao lại là Jest</h2><p>Trước đây khi mới bắt đầu với Javascript mà đặc biệt là Nodejs, mình cũng hơi bị hoang mang khi tìm tool để viết test.<br>Lạc giữa mê hồn trận các thể loại tools, nổi bật và được dùng nhiều nhất thời điểm đó vẫn là combo: Mocha + Chai + Sinon.<br>Mình đã từng có ý định viết 1 bài blog về cách Setup đủ bộ combo này để chạy test và làm starter cho cả team, một phần vì nó khá loằng ngoằng và phức tạp.<br>Cho đến một ngày mình gặp Jest.<br>Jest được phát triển bởi Facebook, bạn có thể tìm hiểu thêm tại <a href="https://facebook.github.io/jest/" target="_blank" rel="noopener">trang chủ của Jest</a>  </p>
+<p>Vậy tại sao mình chọn Jest:  </p>
+<ul>
+<li><strong>Đơn giản, dễ hiểu</strong>: bạn ko cần phải đi mò giữa nhiều thư viện khác nhau, chỉ lên trang chủ Jest là đủ  </li>
+<li><strong>Không cần cấu hình gì cả</strong>: vâng, hoàn toàn không. Chỉ cần kéo thư viện về là bạn có thể bắt đầu viết test và test code được rồi  </li>
+<li><strong>All in one</strong>: một mình Jest là đã cân đầy đủ test runner, assert và mock. Ngoài ra còn có thêm cả Coverage reports… rất ngầu. </li>
+<li><strong>Nhanh</strong>: phải nói là rất nhanh, ngoài ra terminal của test rất đẹp và thân thiện, khi dùng cảm giác rất cool.  </li>
+</ul>
+<p>Chừng đó đã đủ để Jest đốn tim bạn chưa? Nếu &lt;3 rồi thì tại sao ta không tiến sâu hơn?  </p>
+<h2 id="Cai-dat"><a href="#Cai-dat" class="headerlink" title="Cài đặt"></a>Cài đặt</h2><p>Vâng, như đã hứa, Jest không cần cài đặt gì phức tạp. Bạn chỉ cần kéo thư viện về là gần như mọi thứ đã sẵn sàng.<br><em>Mình dùng Yarn nên toàn bộ command mình sẽ theo yarn nhé. Bạn chỉ cần gõ tương tự cho npm là được</em> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Kéo jest vào devDependencies </span></span><br><span class="line">$ yarn add --dev jest</span><br></pre></td></tr></table></figure>
+<p>Giờ bạn chỉ cần gõ: <code>./node_modules/.bin/jest</code> là đã có thể chạy jest rồi nhé. Tuy nhiên ta sẽ thêm shortcut vào trong package.json để gọi cho tiện:<br><figure class="highlight json"><figcaption><span>package.json </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"jest"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"jest"</span>: <span class="string">"^22.4.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Giờ mỗi lần bạn muốn run test, chỉ cần gõ: <code>yarn test</code> nhé &lt;3<br>Gõ thử phát nếu bạn thấy lỗi này thì ok rồi nhé:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ yarn test </span><br><span class="line">yarn run v1.6.0</span><br><span class="line">$ jest</span><br><span class="line">No tests found</span><br><span class="line">In /Users/trong/Projects/exp/jestplayground</span><br><span class="line">  1 file checked.</span><br><span class="line">  testMatch: **/__tests__/**/*.js?(x),**/?(*.)(spec|test).js?(x) - 0 matches</span><br><span class="line">  testPathIgnorePatterns: /node_modules/ - 1 match</span><br><span class="line">Pattern:  - 0 matches</span><br><span class="line">error Command failed with exit code 1.</span><br></pre></td></tr></table></figure></p>
+<p>Nếu bạn để ý kỹ thì sẽ thấy jest bỏ qua thư mục <code>node_modules</code> và tự động tìm kiếm file test nằm trong thư mục <code>__tests__</code> hoặc file có đuôi là: <code>.spec.js</code> hoặc <code>.test.js</code><br>Mình thì follow theo convention là sẽ đặt tên file test là <code>.test.js</code> cùng thư mục với unit code.  </p>
+<p>Giờ ta sẽ bắt tay vào đi viết test nhé.  </p>
+<h2 id="Unit-tests"><a href="#Unit-tests" class="headerlink" title="Unit tests"></a>Unit tests</h2><p>Unit tests là level đơn giản nhất, nôm na là test xem code <strong>của mình</strong> chạy có đúng không.<br>Giờ mình sẽ tạo 1 unit đơn giản là tính tổng 2 số nhé (sum.js):  </p>
+<figure class="highlight js"><figcaption><span>sum.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = sum;</span><br></pre></td></tr></table></figure>
+<p>Để viết test cho unit này thì đơn giản mình sẽ tạo 1 file (test suite) sum.test.js đặt cùng thư mục, giờ mình sẽ test xem với unit sum của mình thì 1 + 2 có bằng 3 không nhé :D </p>
+<figure class="highlight js"><figcaption><span>sum.test.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">'./sum'</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'adds 1 + 2 to equal 3'</span>, () =&gt; &#123;</span><br><span class="line">  expect(sum(<span class="number">1</span>, <span class="number">2</span>)).toBe(<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Giờ bạn gõ <code>yarn test</code> sẽ thấy unit của bạn đã được test rồi nhé.<br><strong>Hint</strong>: trường hợp bạn có nhiều test suite và chỉ muốn test 1 test suite bất kỳ, ví dụ: sum.test.js, gõ: <code>yarn test sum.test.js</code><br><strong>Hint 1</strong>: giả sử trong test suite sum.test.js có nhiều hơn 1 test và bạn chỉ muốn test 1 case là: <code>foo is bar</code>, gõ: <code>yarn test -t &#39;foo is bar&#39;</code><br><strong>Hint 2</strong>: chỉ test case <code>foo is bar</code> trong test suite sum.test.js, gõ: <code>yarn test sum.test.js -t &#39;foo is bar&#39;</code> </p>
+<p>Viết test case với Jest đơn giản chỉ là vậy. Bạn bắt đầu 1 test case với <code>test()</code> và sử dụng bộ assert <code>expect()</code> + <code>toXXX()</code> mà jest cung cấp.<br>Bạn có thể tham khảo <a href="https://facebook.github.io/jest/docs/en/using-matchers.html" target="_blank" rel="noopener">section Matchers</a> trên trang chủ Jest, đầy đủ và rất dễ hiểu   </p>
+<h2 id="Integration-tests"><a href="#Integration-tests" class="headerlink" title="Integration tests"></a>Integration tests</h2><p>Integration tests, nôm na là test xem code <strong>của mình</strong> mà có dùng đến <strong>code khác</strong> chạy có đúng không.<br>Phần <strong>code khác</strong>, được hiểu là code của 1 unit khác, hoặc 1 thư viện mà mình nhúng vào để sử dụng.<br>Để test được case này thì ta sẽ phải mô phỏng hành vi của phần <strong>code khác</strong> (gọi là mock), và test phần code của mình.  </p>
+<h3 id="Mock-1-module"><a href="#Mock-1-module" class="headerlink" title="Mock 1 module"></a>Mock 1 module</h3><p>Giả sử mình có 1 module là <code>total(array)</code>, nó sẽ sử dụng module <code>sum</code> ở trên để tính tổng các phần tử của 1 array  </p>
+<figure class="highlight js"><figcaption><span>total.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">'./sum'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">total</span>(<span class="params">values = []</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> values.reduce(sum, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = total;</span><br></pre></td></tr></table></figure>
+<p>Unit tests total:  </p>
+<figure class="highlight js"><figcaption><span>total.test.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> total = <span class="built_in">require</span>(<span class="string">'./total'</span>);</span><br><span class="line">test(<span class="string">'works'</span>, () =&gt; &#123;</span><br><span class="line">  expect(total([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])).toEqual(<span class="number">10</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Giờ mình sẽ mock hàm sum để nó luôn trả ra là 1 nhé. Test của chúng ta sẽ fail, báo là expected value <code>10</code>, received <code>1</code>:<br><figure class="highlight js"><figcaption><span>total.test.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jest.mock(<span class="string">'./sum'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">'./sum'</span>);</span><br><span class="line"></span><br><span class="line">sum.mockReturnValue(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> total = <span class="built_in">require</span>(<span class="string">'./total'</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'works'</span>, () =&gt; &#123;</span><br><span class="line">  expect(total([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])).toEqual(<span class="number">10</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>Mock module thì chỉ đơn giản như vậy. Bạn có thể tham khảo kỹ hơn về <a href="https://facebook.github.io/jest/docs/en/mock-functions.html" target="_blank" rel="noopener">mock trên trang chủ của jest</a>.  </p>
+<p>Tất nhiên với case hàm total và sum ở trên thì bạn không cần mock vì mấy hàm này gần như cô lập và đã chạy rất nhanh.<br>Giờ ta sẽ sang 1 case thực tế hơn, ví dụ bạn có 1 function, trong function đó gọi đến việc đọc thông tin 1 file trên ổ cứng.<br>Trường hợp này mock sẽ giúp test case chạy nhanh hơn, mock được nhiều case hơn và bạn không cần chuẩn bị file trên ổ cứng để test.  </p>
+<h3 id="Mock-nodejs-core-module"><a href="#Mock-nodejs-core-module" class="headerlink" title="Mock nodejs core module"></a>Mock nodejs core module</h3><p>Ví dụ mình có 1 hàm sử dụng core module <code>fs</code> để đọc thông tin file.  </p>
+<figure class="highlight js"><figcaption><span>readContent.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readContent</span>(<span class="params">file</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> fs.readFileSync(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = readContent;</span><br></pre></td></tr></table></figure>
+<p>Giờ mình sẽ mock để hàm <code>fs.readFileSync()</code> luôn trả về nội dung là <code>foo</code> nhé:<br><figure class="highlight js"><figcaption><span>readContent.test.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> readContent = <span class="built_in">require</span>(<span class="string">'./readContent'</span>);</span><br><span class="line"></span><br><span class="line">jest.mock(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFileSync = jest.fn().mockReturnValue(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'works'</span>, () =&gt; &#123;</span><br><span class="line">  expect(readContent(<span class="string">'/tmp/foo.txt'</span>)).toEqual(<span class="string">'foo'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mock-Axios"><a href="#Mock-Axios" class="headerlink" title="Mock Axios"></a>Mock Axios</h3><p>Giả sử bạn có 1 unit gọi đến 1 http api và bạn đang dùng thư viện Axios để gửi request. Với môi trường CI thì rõ ràng mỗi lần chạy test<br>bạn sẽ không muốn gọi đến api thật vì vừa chậm, vừa ảnh hưởng đến api.<br>Mock Axios khá đơn giản, đoạn code dưới đây mình sẽ mock thử hàm get của axios để trả về 1 kết quả hoàn toàn khác.  </p>
+<figure class="highlight js"><figcaption><span>mockAxios.test.js </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"></span><br><span class="line">jest.mock(<span class="string">'axios'</span>, () =&gt; (&#123;</span><br><span class="line">  get: jest.fn().mockResolvedValue(&#123; <span class="attr">data</span>: &#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;&#125;)</span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">test(<span class="string">'mock axios.get'</span>, <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> axios.get(<span class="string">'https://jsonplaceholder.typicode.com/posts/1'</span>);</span><br><span class="line">  expect(response.data).toEqual(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Đến đây thì bạn đã cảm thấy Jest thuộc về mình chưa? Bài viết này đòi hỏi bạn đã có kinh nghiệm với Automated tests.<br>Còn rất nhiều thứ hay ho về Automated tests nữa mà nếu có thời gian thì mình sẽ viết thêm.<br>Nếu bạn có feedback gì thì đừng ngại ngần comment nhé &lt;3</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tuduydongian.com/2018/04/test-javascript-with-jest/" data-id="cjgt6e053002m8jnde7b06j3o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automated-test/">automated test</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jest/">jest</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/require-function-in-nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Require function trong Node.js
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/json-web-tokens/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JSON Web Tokens</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments">
+  <div class="fb-comments" data-href="https://tuduydongian.com/2018/04/test-javascript-with-jest/index.html" data-width="100%" data-numposts="10"></div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/backend/">backend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/symfony/">symfony</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/">ansible</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automated-test/">automated test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws-lambda/">aws lambda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/best-practice/">best practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-native/">bootstrap-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/">cheatsheet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome-headless/">chrome headless</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flexbox/">flexbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jest/">jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-array-prototype/">js array prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js-async/">js async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jwt/">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/puppeteer/">puppeteer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/automated-test/" style="font-size: 10px;">automated test</a> <a href="/tags/aws-lambda/" style="font-size: 10px;">aws lambda</a> <a href="/tags/babel/" style="font-size: 10px;">babel</a> <a href="/tags/best-practice/" style="font-size: 20px;">best practice</a> <a href="/tags/bootstrap-native/" style="font-size: 10px;">bootstrap-native</a> <a href="/tags/cheatsheet/" style="font-size: 12.5px;">cheatsheet</a> <a href="/tags/chrome-headless/" style="font-size: 10px;">chrome headless</a> <a href="/tags/flexbox/" style="font-size: 10px;">flexbox</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jest/" style="font-size: 10px;">jest</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/js-array-prototype/" style="font-size: 10px;">js array prototype</a> <a href="/tags/js-async/" style="font-size: 10px;">js async</a> <a href="/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/tags/puppeteer/" style="font-size: 10px;">puppeteer</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/require-function-in-nodejs/">Require function trong Node.js</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/test-javascript-with-jest/">Test javascript code với jest</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/json-web-tokens/">JSON Web Tokens</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/symfony-validator-constraint/">How to pass parameters to custom validation constraint in Symfony</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/es2017-lambda/">Thực thi javascript es2017 trên aws lambda</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 tuduydongian.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
